@@ -13,6 +13,6 @@ public class BackAndForth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0, 0, Mathf.PingPong(Time.time, 10) - 5) * Time.deltaTime * 2;
+        transform.position += new Vector3(0, 0, Mathf.PingPong(Time.time, 5) - 2.5f) * Time.deltaTime * 1;
     }
 }
