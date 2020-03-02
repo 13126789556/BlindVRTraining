@@ -14,13 +14,14 @@ public class CarController : MonoBehaviour
     public Behavior behavior;
     IntersectionController _ic;
     RaycastHit hit;
-    Vector3 prevHitPoint;
+    float prevHitVelocity;
+    Rigidbody rb;
     void Start()
     {
         _ic = IntersectionController.Instance;
 
         originSpeed = speed;
-
+        rb = GetComponent<Rigidbody>();
         #region car initialization
         switch (Random.Range(0, 4)) 
         {
@@ -168,17 +169,19 @@ public class CarController : MonoBehaviour
             }
             else if(hit.collider.name != "DeadZone")    //other obstacle check
             {
-                if (Vector3.Dot(hit.point - prevHitPoint, transform.forward) > 0 /*&& hit.distance > 2*/)
+                if (hit.rigidbody != null 
+                    && hit.rigidbody.velocity.magnitude - prevHitVelocity > 0   //car move on in advance
+                    && hit.rigidbody.velocity.magnitude > 2)    
                 {
-                    print(0);
                     MoveOn();
                 }
                 else
                 {
                     Brake(8, hit.point + (transform.position - hit.point).normalized * 1, 3);
                 }
+                print(hit.distance - prevHitVelocity);
             }
-            prevHitPoint = hit.point;
+            prevHitVelocity = hit.rigidbody == null ? 0: hit.rigidbody.velocity.magnitude;
         }
         else
         {
@@ -241,6 +244,7 @@ public class CarController : MonoBehaviour
         //moving
         speed = Mathf.Clamp(speed, 0, originSpeed);
         transform.position += Time.deltaTime * speed * transform.forward;
+        //rb.velocity = speed * transform.forward;
     }
 
     void Brake(float brakeDistance,Vector3 stopPos, float brakeForce)
