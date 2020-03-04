@@ -673,6 +673,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -745,6 +746,26 @@ Transform:
   m_Father: {fileID: 1653824947}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113e4aa2cd3db44d1ac0cb7e9794964b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalGainDb: 0
+  occlusionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stereoSpeakerModeEnabled: 0
+  recorderSeamless: 0
+  recorderSourceTag: Untagged
+  recorderFoldout: 0
 --- !u!4 &1018665410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1395089724662975950, guid: 4aab4b7f7d3fea540bf47f02565c901f,
@@ -890,8 +911,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 200, y: 4, z: 1}
-  m_Center: {x: 0, y: 2, z: 100}
+  m_Size: {x: 400, y: 4, z: 1}
+  m_Center: {x: 0, y: 2, z: 200}
 --- !u!65 &1288818671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -903,8 +924,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 200, y: 4, z: 1}
-  m_Center: {x: 0, y: 2, z: -100}
+  m_Size: {x: 400, y: 4, z: 1}
+  m_Center: {x: 0, y: 2, z: -200}
 --- !u!65 &1288818672
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -916,8 +937,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 4, z: 200}
-  m_Center: {x: -100, y: 2, z: 0}
+  m_Size: {x: 1, y: 4, z: 400}
+  m_Center: {x: -200, y: 2, z: 0}
 --- !u!65 &1288818673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -929,8 +950,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 4, z: 200}
-  m_Center: {x: 100, y: 2, z: 0}
+  m_Size: {x: 1, y: 4, z: 400}
+  m_Center: {x: 200, y: 2, z: 0}
 --- !u!1 &1449046127
 GameObject:
   m_ObjectHideFlags: 0

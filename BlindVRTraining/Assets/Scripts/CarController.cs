@@ -16,6 +16,8 @@ public class CarController : MonoBehaviour
     RaycastHit hit;
     float prevHitVelocity;
     Rigidbody rb;
+    AudioSource engineWoring;
+    float timeFromInit;
     void Start()
     {
         _ic = IntersectionController.Instance;
@@ -33,17 +35,17 @@ public class CarController : MonoBehaviour
                     if (i == 0)
                     {
                         behavior = Behavior.TurnLeft;
-                        transform.position = new Vector3(80, 0, 2);
+                        transform.position = new Vector3(190, 0, 2);
                     }
                     else if (i == 1)
                     {
                         behavior = Behavior.GoStraight;
-                        transform.position = new Vector3(80, 0, Random.Range(0, 1) > 0 ? 2 : 5);
+                        transform.position = new Vector3(190, 0, Random.Range(0, 1) > 0 ? 2 : 5);
                     }
                     else if(i == 2)
                     {
                         behavior = Behavior.TurnRight;
-                        transform.position = new Vector3(80, 0, 5);
+                        transform.position = new Vector3(190, 0, 5);
                     }
                     break;
                 }
@@ -55,17 +57,17 @@ public class CarController : MonoBehaviour
                     if (i == 0)
                     {
                         behavior = Behavior.TurnLeft;
-                        transform.position = new Vector3(-2, 0, 80);
+                        transform.position = new Vector3(-2, 0, 190);
                     }
                     else if (i == 1)
                     {
                         behavior = Behavior.GoStraight;
-                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? -2 : -5, 0, 80);
+                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? -2 : -5, 0, 190);
                     }
                     else if (i == 2)
                     {
                         behavior = Behavior.TurnRight;
-                        transform.position = new Vector3(-5, 0, 80);
+                        transform.position = new Vector3(-5, 0, 190);
                     }
                     break;
                 }
@@ -77,17 +79,17 @@ public class CarController : MonoBehaviour
                     if (i == 0)
                     {
                         behavior = Behavior.TurnLeft;
-                        transform.position = new Vector3(2, 0, -80);
+                        transform.position = new Vector3(2, 0, -190);
                     }
                     else if (i == 1)
                     {
                         behavior = Behavior.GoStraight;
-                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? 2 : 5, 0, -80);
+                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? 2 : 5, 0, -190);
                     }
                     else if (i == 2)
                     {
                         behavior = Behavior.TurnRight;
-                        transform.position = new Vector3(5, 0, -80);
+                        transform.position = new Vector3(5, 0, -190);
                     }
                     break;
                 }
@@ -99,21 +101,23 @@ public class CarController : MonoBehaviour
                     if (i == 0)
                     {
                         behavior = Behavior.TurnLeft;
-                        transform.position = new Vector3(-80, 0, -2);
+                        transform.position = new Vector3(-190, 0, -2);
                     }
                     else if (i == 1)
                     {
                         behavior = Behavior.GoStraight;
-                        transform.position = new Vector3(-80, 0, Random.Range(0, 1) > 0 ? -2 : -5);
+                        transform.position = new Vector3(-190, 0, Random.Range(0, 1) > 0 ? -2 : -5);
                     }
                     else if (i == 2)
                     {
                         behavior = Behavior.TurnRight;
-                        transform.position = new Vector3(-80, 0, -5);
+                        transform.position = new Vector3(-190, 0, -5);
                     }
                     break;
                 }
         }
+        engineWoring = GetComponent<AudioSource>();
+        engineWoring.volume = 0;
         #endregion
     }
 
@@ -179,7 +183,6 @@ public class CarController : MonoBehaviour
                 {
                     Brake(8, hit.point + (transform.position - hit.point).normalized * 1, 3);
                 }
-                print(hit.distance - prevHitVelocity);
             }
             prevHitVelocity = hit.transform.GetComponent<CarController>() == null ? 0: hit.transform.GetComponent<CarController>().speed;
         }
@@ -245,6 +248,12 @@ public class CarController : MonoBehaviour
         speed = Mathf.Clamp(speed, 0, originSpeed);
         transform.position += Time.deltaTime * speed * transform.forward;
         //rb.velocity = speed * transform.forward;
+
+        timeFromInit += Time.deltaTime;
+        if(timeFromInit > 1)
+        {       
+            engineWoring.volume = speed / originSpeed;
+        }
     }
 
     void Brake(float brakeDistance,Vector3 stopPos, float brakeForce)
