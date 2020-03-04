@@ -169,9 +169,9 @@ public class CarController : MonoBehaviour
             }
             else if(hit.collider.name != "DeadZone")    //other obstacle check
             {
-                if (hit.rigidbody != null 
-                    && hit.rigidbody.velocity.magnitude - prevHitVelocity > 0   //car move on in advance
-                    && hit.rigidbody.velocity.magnitude > 2)    
+                if (hit.transform.GetComponent<CarController>() != null 
+                    && hit.transform.GetComponent<CarController>().speed - prevHitVelocity > 0   //car move on in advance
+                    && hit.transform.GetComponent<CarController>().speed > 2)    
                 {
                     MoveOn();
                 }
@@ -181,7 +181,7 @@ public class CarController : MonoBehaviour
                 }
                 print(hit.distance - prevHitVelocity);
             }
-            prevHitVelocity = hit.rigidbody == null ? 0: hit.rigidbody.velocity.magnitude;
+            prevHitVelocity = hit.transform.GetComponent<CarController>() == null ? 0: hit.transform.GetComponent<CarController>().speed;
         }
         else
         {
