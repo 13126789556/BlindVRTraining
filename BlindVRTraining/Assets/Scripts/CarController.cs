@@ -45,7 +45,7 @@ public class CarController : MonoBehaviour
                     else if(i == 2)
                     {
                         behavior = Behavior.TurnRight;
-                        transform.position = new Vector3(190, 0, 5);
+                        transform.position = new Vector3(190, 0, 8);
                     }
                     break;
                 }
@@ -67,7 +67,7 @@ public class CarController : MonoBehaviour
                     else if (i == 2)
                     {
                         behavior = Behavior.TurnRight;
-                        transform.position = new Vector3(-5, 0, 190);
+                        transform.position = new Vector3(-8, 0, 190);
                     }
                     break;
                 }
@@ -89,7 +89,7 @@ public class CarController : MonoBehaviour
                     else if (i == 2)
                     {
                         behavior = Behavior.TurnRight;
-                        transform.position = new Vector3(5, 0, -190);
+                        transform.position = new Vector3(8, 0, -190);
                     }
                     break;
                 }
@@ -111,7 +111,7 @@ public class CarController : MonoBehaviour
                     else if (i == 2)
                     {
                         behavior = Behavior.TurnRight;
-                        transform.position = new Vector3(-190, 0, -5);
+                        transform.position = new Vector3(-190, 0, -8);
                     }
                     break;
                 }
@@ -174,7 +174,7 @@ public class CarController : MonoBehaviour
             else if(hit.collider.name != "DeadZone")    //other obstacle check
             {
                 if (hit.transform.GetComponent<CarController>() != null 
-                    && hit.transform.GetComponent<CarController>().speed - prevHitVelocity > 0   //car move on in advance
+                    && hit.transform.GetComponent<CarController>().speed - prevHitVelocity >= 0   //car move on in advance
                     && hit.transform.GetComponent<CarController>().speed > 2)    
                 {
                     MoveOn();
@@ -198,11 +198,11 @@ public class CarController : MonoBehaviour
                 {
                     if (behavior == Behavior.TurnLeft)
                     {
-                        TurnLeft(new Vector3(7.5f, 0, -7.5f));
+                        TurnLeft(new Vector3(12.5f, 0, -12.5f));
                     }
                     else if (behavior == Behavior.TurnRight)
                     {
-                        TurnRight(new Vector3(7.5f, 0, 7.5f));
+                        TurnRight(new Vector3(12.5f, 0, 12.5f));
                     }
                     break;
                 }
@@ -210,11 +210,11 @@ public class CarController : MonoBehaviour
                 {
                     if (behavior == Behavior.TurnLeft)
                     {
-                        TurnLeft(new Vector3(7.5f, 0, 7.5f));
+                        TurnLeft(new Vector3(12.5f, 0, 12.5f));
                     }
                     else if (behavior == Behavior.TurnRight)
                     {
-                        TurnRight(new Vector3(-7.5f, 0, 7.5f));
+                        TurnRight(new Vector3(-12.5f, 0, 12.5f));
                     }
                     break;
                 }
@@ -222,11 +222,11 @@ public class CarController : MonoBehaviour
                 {
                     if (behavior == Behavior.TurnLeft)
                     {
-                        TurnLeft(new Vector3(-7.5f, 0, -7.5f));
+                        TurnLeft(new Vector3(-12.5f, 0, -12.5f));
                     }
                     else if (behavior == Behavior.TurnRight)
                     {
-                        TurnRight(new Vector3(7.5f, 0, -7.5f));
+                        TurnRight(new Vector3(12.5f, 0, -12.5f));
                     }
                     break;
                 }
@@ -234,11 +234,11 @@ public class CarController : MonoBehaviour
                 {
                     if (behavior == Behavior.TurnLeft)
                     {
-                        TurnLeft(new Vector3(-7.5f, 0, 7.5f));
+                        TurnLeft(new Vector3(-12.5f, 0, 12.5f));
                     }
                     else if (behavior == Behavior.TurnRight)
                     {
-                        TurnRight(new Vector3(-7.5f, 0, -7.5f));
+                        TurnRight(new Vector3(-12.5f, 0, -12.5f));
                     }
                     break;
                 }
@@ -268,16 +268,30 @@ public class CarController : MonoBehaviour
 
     void TurnLeft(Vector3 pivot)
     {
-        if (Mathf.Abs(transform.position.x) <= 7.5 && Mathf.Abs(transform.position.z) <= 7.5)   //enter the intersection
+        if (Mathf.Abs(transform.position.x) <= 12.5f && Mathf.Abs(transform.position.z) <= 12.5f)   //enter the intersection
         {
             transform.forward = Vector3.Cross((transform.position - pivot), transform.up);
+        }
+        else
+        {
+            if (-10 < transform.rotation.eulerAngles.y && transform.rotation.eulerAngles.y < 10) { transform.rotation = Quaternion.Euler(0, 0, 0); }
+            else if (80 < transform.rotation.eulerAngles.y && transform.rotation.eulerAngles.y < 100) { transform.rotation = Quaternion.Euler(0, 90, 0); }
+            else if (170 < transform.rotation.eulerAngles.y && transform.rotation.eulerAngles.y < 190) { transform.rotation = Quaternion.Euler(0, 180, 0); }
+            else if (260 < transform.rotation.eulerAngles.y && transform.rotation.eulerAngles.y < 280) { transform.rotation = Quaternion.Euler(0, 270, 0); }
         }
     }
     void TurnRight(Vector3 pivot)
     {
-        if (Mathf.Abs(transform.position.x) <= 7.5 && Mathf.Abs(transform.position.z) <= 7.5)   //enter the intersection
+        if (Mathf.Abs(transform.position.x) <= 12.5f && Mathf.Abs(transform.position.z) <= 12.5f)   //enter the intersection
         {
             transform.forward = Vector3.Cross(transform.up, (transform.position - pivot));
+        }
+        else
+        {
+            if (-10 < transform.rotation.eulerAngles.y && transform.rotation.eulerAngles.y < 10) { transform.rotation = Quaternion.Euler(0, 0, 0); }
+            else if (80 < transform.rotation.eulerAngles.y && transform.rotation.eulerAngles.y < 100) { transform.rotation = Quaternion.Euler(0, 90, 0); }
+            else if (170 < transform.rotation.eulerAngles.y && transform.rotation.eulerAngles.y < 190) { transform.rotation = Quaternion.Euler(0, 180, 0); }
+            else if (260 < transform.rotation.eulerAngles.y && transform.rotation.eulerAngles.y < 280) { transform.rotation = Quaternion.Euler(0, 270, 0); }
         }
     }
 

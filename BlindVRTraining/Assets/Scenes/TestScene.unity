@@ -1245,6 +1245,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1072507525}
     m_Modifications:
+    - target: {fileID: 1395089724662975944, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395089724662975944, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1395089724662975949, guid: 4aab4b7f7d3fea540bf47f02565c901f,
         type: 3}
       propertyPath: m_Name
@@ -1310,10 +1320,50 @@ PrefabInstance:
       propertyPath: intersectionState
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1395089724665712402, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395089724665712402, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395089724678943507, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395089724678943507, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1395089724849863216, guid: 4aab4b7f7d3fea540bf47f02565c901f,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 1395089725386923095, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395089725386923095, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395089725862384035, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395089725862384035, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aab4b7f7d3fea540bf47f02565c901f, type: 3}
