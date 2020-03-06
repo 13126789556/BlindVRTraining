@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer <= 0)
         {
-            Instantiate(car);
+            var tempCarController = Instantiate(car).GetComponent<CarController>();
+            //tempCarController.behavior = CarController.Behavior.GoStraight;
+            //tempCarController.sourceDir = CarController.Direction.East;
             timer = Random.Range(2,6);
         }
     }

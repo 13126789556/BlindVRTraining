@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public enum Direction { North, Sorth, West, East}
+    public enum Direction { Null, North, Sorth, West, East}
     public Direction sourceDir; 
     public float speed = 10;
     public float leftTurnRadius, rightTurnRadius;
     float originSpeed;
     Ray forwardDetection;
-    public enum Behavior { TurnLeft, GoStraight, TurnRight }
+    public enum Behavior { Null, TurnLeft, GoStraight, TurnRight }
     public Behavior behavior;
     IntersectionController _ic;
     RaycastHit hit;
@@ -25,92 +25,163 @@ public class CarController : MonoBehaviour
         originSpeed = speed;
         rb = GetComponent<Rigidbody>();
         #region car initialization
-        switch (Random.Range(0, 4)) 
+        switch (Random.Range(0, 4))
         {
             case 0:
                 {
-                    sourceDir = Direction.East;
+                    sourceDir = sourceDir == Direction.Null ? Direction.East : sourceDir;
                     transform.forward = new Vector3(-1, 0, 0);
                     int i = Random.Range(0, 3);
                     if (i == 0)
                     {
-                        behavior = Behavior.TurnLeft;
+                        behavior = behavior == Behavior.Null ? Behavior.TurnLeft : behavior;
                         transform.position = new Vector3(190, 0, 2);
                     }
                     else if (i == 1)
                     {
-                        behavior = Behavior.GoStraight;
+                        behavior = behavior == Behavior.Null ? Behavior.GoStraight : behavior;
                         transform.position = new Vector3(190, 0, Random.Range(0, 1) > 0 ? 2 : 5);
                     }
-                    else if(i == 2)
+                    else if (i == 2)
                     {
-                        behavior = Behavior.TurnRight;
+                        behavior = behavior == Behavior.Null ? Behavior.TurnRight : behavior;
                         transform.position = new Vector3(190, 0, 8);
                     }
                     break;
                 }
             case 1:
                 {
-                    sourceDir = Direction.North;
+                    sourceDir = sourceDir == Direction.Null ? Direction.North : sourceDir;
                     transform.forward = new Vector3(0, 0, -1);
                     int i = Random.Range(0, 3);
                     if (i == 0)
                     {
-                        behavior = Behavior.TurnLeft;
+                        behavior = behavior == Behavior.Null ? Behavior.TurnLeft : behavior;
                         transform.position = new Vector3(-2, 0, 190);
                     }
                     else if (i == 1)
                     {
-                        behavior = Behavior.GoStraight;
+                        behavior = behavior == Behavior.Null ? Behavior.GoStraight : behavior;
                         transform.position = new Vector3(Random.Range(0, 1) > 0 ? -2 : -5, 0, 190);
                     }
                     else if (i == 2)
                     {
-                        behavior = Behavior.TurnRight;
+                        behavior = behavior == Behavior.Null ? Behavior.TurnRight : behavior;
                         transform.position = new Vector3(-8, 0, 190);
                     }
                     break;
                 }
             case 2:
                 {
-                    sourceDir = Direction.Sorth;
+                    sourceDir = sourceDir == Direction.Null ? Direction.Sorth : sourceDir;
                     transform.forward = new Vector3(0, 0, 1);
                     int i = Random.Range(0, 3);
                     if (i == 0)
                     {
-                        behavior = Behavior.TurnLeft;
+                        behavior = behavior == Behavior.Null ? Behavior.TurnLeft : behavior;
                         transform.position = new Vector3(2, 0, -190);
                     }
                     else if (i == 1)
                     {
-                        behavior = Behavior.GoStraight;
+                        behavior = behavior == Behavior.Null ? Behavior.GoStraight : behavior;
                         transform.position = new Vector3(Random.Range(0, 1) > 0 ? 2 : 5, 0, -190);
                     }
                     else if (i == 2)
                     {
-                        behavior = Behavior.TurnRight;
+                        behavior = behavior == Behavior.Null ? Behavior.TurnRight : behavior;
                         transform.position = new Vector3(8, 0, -190);
                     }
                     break;
                 }
             case 3:
                 {
-                    sourceDir = Direction.West;
+                    sourceDir = sourceDir == Direction.Null ? Direction.West : sourceDir;
                     transform.forward = new Vector3(1, 0, 0);
                     int i = Random.Range(0, 3);
                     if (i == 0)
                     {
-                        behavior = Behavior.TurnLeft;
+                        behavior = behavior == Behavior.Null ? Behavior.TurnLeft : behavior;
                         transform.position = new Vector3(-190, 0, -2);
                     }
                     else if (i == 1)
                     {
-                        behavior = Behavior.GoStraight;
+                        behavior = behavior == Behavior.Null ? Behavior.GoStraight : behavior;
                         transform.position = new Vector3(-190, 0, Random.Range(0, 1) > 0 ? -2 : -5);
                     }
                     else if (i == 2)
                     {
-                        behavior = Behavior.TurnRight;
+                        behavior = behavior == Behavior.Null ? Behavior.TurnRight : behavior;
+                        transform.position = new Vector3(-190, 0, -8);
+                    }
+                    break;
+                }
+        }
+        switch (sourceDir)
+        {
+            case Direction.East:
+                {
+                    transform.forward = new Vector3(-1, 0, 0);
+                    if (behavior == Behavior.TurnLeft)
+                    {
+                        transform.position = new Vector3(190, 0, 2);
+                    }
+                    else if (behavior == Behavior.GoStraight)
+                    {
+                        transform.position = new Vector3(190, 0, Random.Range(0, 1) > 0 ? 2 : 5);
+                    }
+                    else if (behavior == Behavior.TurnRight)
+                    {
+                        transform.position = new Vector3(190, 0, 8);
+                    }
+                    break;
+                }
+            case Direction.North:
+                {
+                    transform.forward = new Vector3(0, 0, -1);
+                    if (behavior == Behavior.TurnLeft)
+                    {
+                        transform.position = new Vector3(-2, 0, 190);
+                    }
+                    else if (behavior == Behavior.GoStraight)
+                    {
+                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? -2 : -5, 0, 190);
+                    }
+                    else if (behavior == Behavior.TurnRight)
+                    {
+                        transform.position = new Vector3(-8, 0, 190);
+                    }
+                    break;
+                }
+            case Direction.Sorth:
+                {
+                    transform.forward = new Vector3(0, 0, 1);
+                    if (behavior == Behavior.TurnLeft)
+                    {
+                        transform.position = new Vector3(2, 0, -190);
+                    }
+                    else if (behavior == Behavior.GoStraight)
+                    {
+                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? 2 : 5, 0, -190);
+                    }
+                    else if (behavior == Behavior.TurnRight)
+                    {
+                        transform.position = new Vector3(8, 0, -190);
+                    }
+                    break;
+                }
+            case Direction.West:
+                {
+                    transform.forward = new Vector3(1, 0, 0);
+                    if (behavior == Behavior.TurnLeft)
+                    {
+                        transform.position = new Vector3(-190, 0, -2);
+                    }
+                    else if (behavior == Behavior.GoStraight)
+                    {
+                        transform.position = new Vector3(-190, 0, Random.Range(0, 1) > 0 ? -2 : -5);
+                    }
+                    else if (behavior == Behavior.TurnRight)
+                    {
                         transform.position = new Vector3(-190, 0, -8);
                     }
                     break;
