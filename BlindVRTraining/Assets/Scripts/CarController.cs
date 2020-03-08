@@ -18,6 +18,7 @@ public class CarController : MonoBehaviour
     Rigidbody rb;
     AudioSource engineWoring;
     float timeFromInit;
+    LayerMask ignoreWlakSide = ~(1 << 8);
     void Start()
     {
         _ic = IntersectionController.Instance;
@@ -195,7 +196,7 @@ public class CarController : MonoBehaviour
     void Update()
     {
         forwardDetection = new Ray(transform.position + new Vector3(0, 1, 0), transform.forward);
-        if (Physics.Raycast(forwardDetection, out hit, 12))
+        if (Physics.Raycast(forwardDetection, out hit, 12,ignoreWlakSide))
         {
             Debug.DrawLine(forwardDetection.origin, hit.point);
             if (hit.collider.name == "Intersection")    //signal light check
