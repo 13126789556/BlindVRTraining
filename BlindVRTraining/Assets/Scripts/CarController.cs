@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class CarController : MonoBehaviour
+public class CarController : NetworkBehaviour
 {
     public enum Direction { Null, North, Sorth, West, East}
     public Direction sourceDir; 
@@ -195,6 +196,8 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
+        if(!isServer)
+        { return; }
         forwardDetection = new Ray(transform.position + new Vector3(0, 1, 0), transform.forward);
         if (Physics.Raycast(forwardDetection, out hit, 12,ignoreWlakSide))
         {
