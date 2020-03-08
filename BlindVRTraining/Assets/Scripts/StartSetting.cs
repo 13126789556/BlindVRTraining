@@ -31,12 +31,14 @@ public class StartSetting : NetworkManager
         {
             return;
         }
-        foreach (var addr in discovery.broadcastsReceived.Keys)
+        if (discovery.broadcastsReceived != null)
         {
-            var value = discovery.broadcastsReceived[addr];
-            print(addr.Remove(0,7));
-            networkAddress = addr;
-            StartClient();
+            foreach (var addr in discovery.broadcastsReceived.Keys)
+            {
+                print(addr.Remove(0, 7));
+                networkAddress = addr;
+                StartClient();
+            }
         }
     }
     public override void OnStartHost()
