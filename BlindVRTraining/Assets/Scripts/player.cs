@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class player : NetworkBehaviour
 {
-    [SerializeField] private float speed = 1;
+    [SerializeField] private float speed = 2.0f;
     [SerializeField] private GameObject Arrow;
     public bool isCollected = false;
 
@@ -45,7 +45,7 @@ public class player : NetworkBehaviour
     //allow player keep moving
     public void move()
     {
-        speed = 1;
+        speed = 2.0f;
     }
 
     public void resetLocation(Vector3 location)

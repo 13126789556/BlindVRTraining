@@ -12,16 +12,18 @@ public class GuideManager : MonoBehaviour
         _Direction_Right = 3,
         _XStreet_Direction = 4,
         _Xstreet_PushButton = 5,
-        _Tutorial_XStreet = 6,
-        _Tutorial_PushButton = 7,
-        _Tutorial_Beep = 8,
-        _Tutorial_Collect = 9,
-        _Tutorial_TurnBack = 10,
-        _Tutorial_Congratuate = 11,
-        _Error_HurtByCar = 12
+        _Xstreet_Wait = 6,
+        _Tutorial_XStreet = 7,
+        _Tutorial_PushButton = 8,
+        _Tutorial_Beep = 9,
+        _Tutorial_Collect = 10,
+        _Tutorial_TurnBack = 11,
+        _Tutorial_Congratuate = 12,
+        _Error_HurtByCar = 13
     };
 
     public AudioClip[] audios;
+    [System.NonSerialized]
     public List<int> playList = new List<int>();
     private AudioSource audiosource;
     private int index = 0;
@@ -44,7 +46,7 @@ public class GuideManager : MonoBehaviour
                 index++;
             }
         }
-        else
+        else if(playList.Count >= 1000)
         {
             playList.Clear();
             index = 0;
