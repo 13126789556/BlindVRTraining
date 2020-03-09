@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: -219812467027578063}
   - component: {fileID: 4721299275444667830}
   - component: {fileID: 3040905558448218488}
+  - component: {fileID: 2524671653989470442}
   - component: {fileID: 4496851071590266446}
   - component: {fileID: 2351581455423953614}
   m_Layer: 9
@@ -329,6 +330,19 @@ MonoBehaviour:
   speed: 2
   Arrow: {fileID: 2058476177842623768}
   isCollected: 0
+--- !u!114 &2524671653989470442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3040905558448218470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf5913a2ca65de48abc5b911e956c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guideManager: {fileID: 0}
 --- !u!114 &4496851071590266446
 MonoBehaviour:
   m_ObjectHideFlags: 0

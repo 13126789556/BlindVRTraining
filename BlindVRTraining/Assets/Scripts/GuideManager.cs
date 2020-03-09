@@ -22,7 +22,10 @@ public class GuideManager : MonoBehaviour
         _Error_HurtByCar = 13,
         _Error_TooRight = 14,
         _Error_TooLeft = 15,
-        _Error_Opposite = 16
+        _Error_Opposite = 16,
+        _Encouragement_1 = 17,
+        _Encouragement_2 = 18,
+        _Encouragement_3 = 19,
     };
 
     public AudioClip[] audios;

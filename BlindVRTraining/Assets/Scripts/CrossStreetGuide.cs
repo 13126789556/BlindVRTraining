@@ -14,7 +14,7 @@ public class CrossStreetGuide : MonoBehaviour
     private SignalController sc;
 
     public State state = State.Wait;
-    private static float span = 10.0f;
+    private static float span = 5.0f;
     private bool istriggered = false;
 
     // Start is called before the first frame update
