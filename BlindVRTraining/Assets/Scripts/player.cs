@@ -14,6 +14,7 @@ public class player : NetworkBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
 
   

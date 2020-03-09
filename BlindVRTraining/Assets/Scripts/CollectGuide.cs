@@ -6,6 +6,8 @@ public class CollectGuide : MonoBehaviour
 {
     public GameObject guideManager;
     public GameObject crossStreet;
+    public GameObject InnerZone;
+    public GameObject OuterZone;
     private float span = 3.0f;
     private float duration = 5.0f;
 
@@ -46,6 +48,8 @@ public class CollectGuide : MonoBehaviour
                 }
                 else
                 {
+                    InnerZone.GetComponent<DirectionGuide>().sideTag = DirectionGuide.Side.Right;
+                    OuterZone.GetComponent<DirectionGuide>().sideTag = DirectionGuide.Side.Left;
                     guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Tutorial_TurnBack);
                     crossStreet.SetActive(true);
                     this.enabled = false;
