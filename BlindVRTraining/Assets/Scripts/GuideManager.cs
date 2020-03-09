@@ -19,7 +19,10 @@ public class GuideManager : MonoBehaviour
         _Tutorial_Collect = 10,
         _Tutorial_TurnBack = 11,
         _Tutorial_Congratuate = 12,
-        _Error_HurtByCar = 13
+        _Error_HurtByCar = 13,
+        _Error_TooRight = 14,
+        _Error_TooLeft = 15,
+        _Error_Opposite = 16
     };
 
     public AudioClip[] audios;

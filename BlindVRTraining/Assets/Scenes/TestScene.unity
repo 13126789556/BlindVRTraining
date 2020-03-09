@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 28322997}
   - component: {fileID: 28322998}
   - component: {fileID: 28322999}
+  - component: {fileID: 28323000}
   m_Layer: 8
   m_Name: InnerZone
   m_TagString: Untagged
@@ -193,6 +194,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 4, z: 70}
   m_Center: {x: -9, y: 2, z: -25}
+--- !u!114 &28323000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28322995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f39f66b2eb60694ba565616ff029b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sideTag: 1
+  guideManager: {fileID: 601220535}
 --- !u!1 &157860508
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +479,7 @@ GameObject:
   - component: {fileID: 371230221}
   - component: {fileID: 371230223}
   - component: {fileID: 371230222}
+  - component: {fileID: 371230224}
   m_Layer: 8
   m_Name: ReverseZone
   m_TagString: Untagged
@@ -511,6 +527,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20, y: 4, z: 2}
   m_Center: {x: 20, y: 2, z: -59}
+--- !u!114 &371230224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371230220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f39f66b2eb60694ba565616ff029b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sideTag: 2
+  guideManager: {fileID: 601220535}
 --- !u!1001 &402289443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -816,6 +846,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c20e4197fa8a5014b9b1a5d399ea3654, type: 3}
   - {fileID: 8300000, guid: 2f2fbccbaa23a604ead71ab7c864099f, type: 3}
   - {fileID: 8300000, guid: 5cc7dab94069c7e4391b9e7bc973c36e, type: 3}
+  - {fileID: 8300000, guid: 68611396da59acf4f869a1a92775ea35, type: 3}
+  - {fileID: 8300000, guid: 1528276b27f06204997e31c630d41ae8, type: 3}
+  - {fileID: 8300000, guid: 7f8a1f71efc49c24cb856072cdbb2827, type: 3}
 --- !u!4 &601220537
 Transform:
   m_ObjectHideFlags: 0
@@ -1523,6 +1556,7 @@ GameObject:
   - component: {fileID: 1407940418}
   - component: {fileID: 1407940417}
   - component: {fileID: 1407940416}
+  - component: {fileID: 1407940419}
   m_Layer: 8
   m_Name: OuterZone
   m_TagString: Untagged
@@ -1583,6 +1617,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 4, z: 78}
   m_Center: {x: 17, y: 2, z: -21}
+--- !u!114 &1407940419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407940414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f39f66b2eb60694ba565616ff029b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sideTag: 0
+  guideManager: {fileID: 601220535}
 --- !u!1 &1449046127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,6 +1938,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guideManager: {fileID: 601220535}
   crossStreet: {fileID: 769813404}
+  InnerZone: {fileID: 28322995}
+  OuterZone: {fileID: 1407940414}
 --- !u!1001 &1395089725276165132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2148,7 +2198,7 @@ PrefabInstance:
     - target: {fileID: 2844993806743133620, guid: fed132a8df1e263458114bf2297f4791,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.51
+      value: -54.9
       objectReference: {fileID: 0}
     - target: {fileID: 2844993806743133620, guid: fed132a8df1e263458114bf2297f4791,
         type: 3}
