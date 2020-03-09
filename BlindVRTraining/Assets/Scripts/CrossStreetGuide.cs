@@ -102,6 +102,7 @@ public class CrossStreetGuide : MonoBehaviour
                         if (Input.GetKey(KeyCode.Space))
                         {
                             state = State.Wait;
+                            sc.AllowBeep = true;
                             other.gameObject.GetComponent<player>().move();
                             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_Wait);
                         }

@@ -113,6 +113,7 @@ public class TutorialGuide : MonoBehaviour
                         if (Input.GetKey(KeyCode.Space))
                         {
                             state = State.Wait;
+                            sc.AllowBeep = true;
                             other.gameObject.GetComponent<player>().move();
                             duration = 0.0f;
                         }
