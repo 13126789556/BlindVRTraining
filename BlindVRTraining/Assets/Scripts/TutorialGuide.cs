@@ -16,6 +16,7 @@ public class TutorialGuide : MonoBehaviour
     private float span = 10.0f;
     private float duration = 0.0f;
     private bool istriggered = false;
+    private bool hint = false;
 
     // Start is called before the first frame update
     void Start()
@@ -122,6 +123,12 @@ public class TutorialGuide : MonoBehaviour
                         if (duration <= 0.0f && !sc.AllowGoStraight)
                         {
                             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_Wait);
+                            hint = false;
+                        }
+                        else if (!hint && sc.AllowGoStraight)
+                        {
+                            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Tutorial_Beep);
+                            hint = true;
                         }
                     }
                     break;

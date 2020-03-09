@@ -25,6 +25,8 @@ public class GuideManager : MonoBehaviour
     public AudioClip[] audios;
     [System.NonSerialized]
     public List<int> playList = new List<int>();
+    [System.NonSerialized]
+    public float span = 0.0f;
     private AudioSource audiosource;
     private int index = 0;
 
@@ -37,19 +39,24 @@ public class GuideManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (index < playList.Count)
+        if (!audiosource.isPlaying)
         {
-            if (!audiosource.isPlaying)
+            if (index < playList.Count)
             {
                 audiosource.clip = audios[playList[index]];
                 audiosource.Play();
                 index++;
             }
+            else if (playList.Count >= 1000)
+            {
+                playList.Clear();
+                index = 0;
+            }
+            span += Time.deltaTime;
         }
-        else if(playList.Count >= 1000)
+        else 
         {
-            playList.Clear();
-            index = 0;
+            span = 0.0f;
         }
     }
 }

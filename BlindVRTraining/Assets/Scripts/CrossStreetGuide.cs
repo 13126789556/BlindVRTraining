@@ -14,8 +14,7 @@ public class CrossStreetGuide : MonoBehaviour
     private SignalController sc;
 
     public State state = State.Wait;
-    private float span = 10.0f;
-    private float duration = 0.0f;
+    private static float span = 10.0f;
     private bool istriggered = false;
 
     // Start is called before the first frame update
@@ -26,14 +25,6 @@ public class CrossStreetGuide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!guideManager.GetComponent<AudioSource>().isPlaying)
-        {
-            duration -= Time.deltaTime;
-        }
-        else
-        {
-            duration = span;
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -97,13 +88,13 @@ public class CrossStreetGuide : MonoBehaviour
                         if (dot >= 0.7f)
                         {
                             state = State.Push_To_Walk;
-                            duration = 0.0f;
+                            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_PushButton);
                         }
                     }
                     break;
                 case State.Push_To_Walk:
                     {
-                        if (duration <= 0.0f)
+                        if (guideManager.GetComponent<GuideManager>().span >= span)
                         {
                             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_PushButton);
                         }
@@ -112,13 +103,13 @@ public class CrossStreetGuide : MonoBehaviour
                         {
                             state = State.Wait;
                             other.gameObject.GetComponent<player>().move();
-                            duration = 0.0f;
+                            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_Wait);
                         }
                     }
                     break;
                 case State.Wait:
                     {
-                        if (duration <= 0.0f && !sc.AllowGoStraight)
+                        if (guideManager.GetComponent<GuideManager>().span >= span && !sc.AllowGoStraight)
                         {
                             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_Wait);
                         }
