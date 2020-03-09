@@ -8,10 +8,12 @@ public class player : NetworkBehaviour
     [SerializeField] private float speed = 2.0f;
     [SerializeField] private GameObject Arrow;
     public bool isCollected = false;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
     }
 
   
@@ -24,7 +26,12 @@ public class player : NetworkBehaviour
         {
             Vector3 newDir = getUnitFacingDirection();
             newDir.y = 0;
-            transform.position = transform.position + Time.deltaTime * newDir.normalized * speed; 
+            //transform.position = transform.position + Time.deltaTime * newDir.normalized * speed;
+            rb.velocity = newDir.normalized * speed;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
         }
         Arrow.transform.forward = getUnitFacingDirection();
     }
