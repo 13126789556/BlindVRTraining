@@ -204,7 +204,6 @@ GameObject:
   - component: {fileID: 157860509}
   - component: {fileID: 157860510}
   - component: {fileID: 157860511}
-  - component: {fileID: 157860512}
   m_Layer: 0
   m_Name: Trigger1
   m_TagString: Untagged
@@ -248,32 +247,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 157860508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58282ae244826914ebd6a7866a03becf, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d1a315b94fb1614dbf2bb34afd7f467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   guideManager: {fileID: 601220535}
-  directions:
-  - {x: 0, y: 0, z: 1}
-  - {x: 0, y: 0, z: 1}
-  Singnals:
-  - {fileID: 740986902}
-  - {fileID: 740986902}
+  direction: {x: 0, y: 0, z: 1}
+  Singnal: {fileID: 740986902}
   state: 2
---- !u!114 &157860512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157860508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ada96b8c39b37cf419c2e1d6ab99c03a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guideManager: {fileID: 601220535}
-  isUsed_XStreet: 0
-  isUsed_Beep: 0
 --- !u!1001 &189764443
 PrefabInstance:
   m_ObjectHideFlags: 0
