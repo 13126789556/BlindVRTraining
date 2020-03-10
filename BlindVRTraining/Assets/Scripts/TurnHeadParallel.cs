@@ -29,7 +29,7 @@ public class TurnHeadParallel : MonoBehaviour
 
     public float getAngle(){
         //angle = x1x2+y1y2 / sqr(x1*x1 + y1*y1) * sqr(x2*x2 + y2*y2)
-        Vector2 facing = _player.getUnitFacingDirection();
+        Vector3 facing = _player.getUnitFacingDirection();
         //forward (0,1)
         print(Vector3.forward);
         float cosAngle = facing.y / Mathf.Sqrt(facing.x * facing.x + facing.y * facing.y);
