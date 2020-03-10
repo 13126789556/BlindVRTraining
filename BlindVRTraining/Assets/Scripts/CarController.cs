@@ -20,6 +20,7 @@ public class CarController : NetworkBehaviour
     AudioSource engineWoring;
     float timeFromInit;
     LayerMask ignoreWlakSide = ~(1 << 8);
+    bool isTracking;
     void Start()
     {
         _ic = IntersectionController.Instance;
@@ -246,7 +247,7 @@ public class CarController : NetworkBehaviour
                         }
                 }
             }
-            else if(hit.collider.name != "DeadZone")    //other obstacle check
+            else if(/*hit.collider.name != "DeadZone" && hit.collider.name != "Track Zone"*/!hit.collider.isTrigger)    //other obstacle check
             {
                 if (hit.transform.GetComponent<CarController>() != null 
                     && hit.transform.GetComponent<CarController>().speed - prevHitVelocity >= 0   //car move on in advance
@@ -379,7 +380,11 @@ public class CarController : NetworkBehaviour
     {
         if (other.name == "Track Zone" && !TurnHeadParallel.isCarInZone)
         {
+            isTracking = true;
             TurnHeadParallel.isCarInZone = true;
+        }
+        if (isTracking)
+        {
             TurnHeadParallel.targetPosition = transform.position;
         }
     }
@@ -388,6 +393,7 @@ public class CarController : NetworkBehaviour
         if (other.name == "Track Zone")
         {
             TurnHeadParallel.isCarInZone = false;
+            isTracking = false;
         }
     }
 }

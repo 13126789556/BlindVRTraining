@@ -1706,7 +1706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 890970741}
   - component: {fileID: 890970742}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Track Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
