@@ -72,4 +72,5 @@ public class player : NetworkBehaviour
         location.y = transform.position.y;
         transform.position = location;
     }
+    
 }
