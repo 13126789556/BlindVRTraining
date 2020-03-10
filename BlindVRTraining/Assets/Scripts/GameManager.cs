@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class GameManager : NetworkBehaviour
 {
     public GameObject car;
-    public int maxCarCount = 5;
+    public int maxCarCount = 30;
     IntersectionController _ic;
     float timer;
     //NetworkManager networkManager;
