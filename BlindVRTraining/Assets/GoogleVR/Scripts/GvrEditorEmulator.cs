@@ -103,7 +103,7 @@ public class GvrEditorEmulator : MonoBehaviour
         bool rolled = false;
         if (CanChangeYawPitch())
         {
-            GvrCursorHelper.HeadEmulationActive = true;
+            //GvrCursorHelper.HeadEmulationActive = true;
             mouseX += Input.GetAxis(AXIS_MOUSE_X) * 5;
             if (mouseX <= -180)
             {
@@ -199,7 +199,8 @@ public class GvrEditorEmulator : MonoBehaviour
             return false;
         }
 
-        return Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
+        //return Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
+        return true;
     }
 
     private bool CanChangeRoll()
