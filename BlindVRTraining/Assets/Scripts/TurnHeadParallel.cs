@@ -6,16 +6,18 @@ public class TurnHeadParallel : MonoBehaviour
 {
     player _player;
     GameObject _startPosition;
+    static bool isCarInZone;
     // Start is call`ed before the first frame update
     void Start(){
         _player = GetComponent<player>();
         _startPosition = GameObject.FindGameObjectWithTag("StartPosition");
+        isCarInZone = false;
     }
 
     private void FixedUpdate() {
         //turn head to track the car sound
         //TODO: instruction
-
+        turnHead2TrackSound();
         //TODO: instruction
         //turn left side parallel to the traffic
         comfirmPosition();
@@ -59,5 +61,6 @@ public class TurnHeadParallel : MonoBehaviour
 
     public void turnHead2TrackSound(){
         //if car in the trigger
+        print(TurnHeadParallel.isCarInZone);
     }
 }
