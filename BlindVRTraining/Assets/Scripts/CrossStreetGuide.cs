@@ -14,7 +14,7 @@ public class CrossStreetGuide : MonoBehaviour
     private SignalController sc;
 
     public State state = State.Wait;
-    private static float span = 10.0f;
+    private static float span = 5.0f;
     private bool istriggered = false;
 
     // Start is called before the first frame update
@@ -102,6 +102,7 @@ public class CrossStreetGuide : MonoBehaviour
                         if (Input.GetKey(KeyCode.Space))
                         {
                             state = State.Wait;
+                            sc.AllowBeep = true;
                             other.gameObject.GetComponent<player>().move();
                             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_Wait);
                         }

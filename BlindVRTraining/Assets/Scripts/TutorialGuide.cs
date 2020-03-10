@@ -13,7 +13,7 @@ public class TutorialGuide : MonoBehaviour
     private SignalController sc;
 
     public State state = State.Wait;
-    private float span = 10.0f;
+    private float span = 5.0f;
     private float duration = 0.0f;
     private bool istriggered = false;
     private bool hint = false;
@@ -113,6 +113,7 @@ public class TutorialGuide : MonoBehaviour
                         if (Input.GetKey(KeyCode.Space))
                         {
                             state = State.Wait;
+                            sc.AllowBeep = true;
                             other.gameObject.GetComponent<player>().move();
                             duration = 0.0f;
                         }

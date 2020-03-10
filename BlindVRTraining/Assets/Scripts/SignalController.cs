@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SignalController : MonoBehaviour
 {
-    bool allowTurnLeft, allowGoStraight;
+    bool allowTurnLeft, allowGoStraight, allowBeep = false;
+
     public bool AllowTurnLeft
     {
         get
@@ -31,14 +32,29 @@ public class SignalController : MonoBehaviour
             transform.Find("GoStraight/Red").gameObject.SetActive(!allowGoStraight);
         }
     }
+    public bool AllowBeep 
+    {
+        get 
+        {
+            return allowBeep;
+        }
+        set 
+        {
+            allowBeep = value;
+        }
+    }
 
     void Start()
     {
-        
+        GetComponent<AudioSource>().Stop();
     }
 
     void Update()
     {
-        
+        if (AllowBeep && AllowGoStraight)
+        {
+            GetComponent<AudioSource>().Play();
+            allowBeep = false;
+        }
     }
 }
