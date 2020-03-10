@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 
 public class CarController : NetworkBehaviour
 {
+    public static int carCount;
     public enum Direction { Null, North, Sorth, West, East}
     public Direction sourceDir; 
     public float speed = 10;
@@ -21,6 +22,10 @@ public class CarController : NetworkBehaviour
     float timeFromInit;
     LayerMask ignoreWlakSide = ~(1 << 8);
     bool isTracking;
+    private void Awake()
+    {
+        carCount++;
+    }
     void Start()
     {
         _ic = IntersectionController.Instance;
@@ -395,5 +400,10 @@ public class CarController : NetworkBehaviour
             TurnHeadParallel.isCarInZone = false;
             isTracking = false;
         }
+    }
+
+    private void OnDestroy()
+    {
+        carCount--;
     }
 }

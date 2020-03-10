@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class GameManager : NetworkBehaviour
 {
     public GameObject car;
+    public int maxCarCount = 5;
     IntersectionController _ic;
     float timer;
     //NetworkManager networkManager;
@@ -29,7 +30,7 @@ public class GameManager : NetworkBehaviour
         if(!isServer)
         { return; }
         timer -= Time.deltaTime;
-        if(timer <= 0)
+        if(timer <= 0 && CarController.carCount <= maxCarCount)
         {
             var tempCar = Instantiate(car);
             var tempCarController = tempCar.GetComponent<CarController>();
