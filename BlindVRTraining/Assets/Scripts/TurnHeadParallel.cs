@@ -6,7 +6,8 @@ public class TurnHeadParallel : MonoBehaviour
 {
     player _player;
     GameObject _startPosition;
-    static bool isCarInZone;
+    static public bool isCarInZone;
+    static public Vector3 targetPosition;
     // Start is call`ed before the first frame update
     void Start(){
         _player = GetComponent<player>();

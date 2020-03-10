@@ -374,4 +374,20 @@ public class CarController : NetworkBehaviour
     {
         if(other.name == "DeadZone") { Destroy(gameObject); }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.name == "Track Zone" && !TurnHeadParallel.isCarInZone)
+        {
+            TurnHeadParallel.isCarInZone = true;
+            TurnHeadParallel.targetPosition = transform.position;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name == "Track Zone")
+        {
+            TurnHeadParallel.isCarInZone = false;
+        }
+    }
 }
