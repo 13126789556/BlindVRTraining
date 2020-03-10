@@ -6,7 +6,9 @@ public class TurnHeadParallel : MonoBehaviour
 {
     player _player;
     GameObject _startPosition;
-    static bool isCarInZone;
+    static public bool isCarInZone;
+    static public Vector3 targetPosition;
+    
     // Start is call`ed before the first frame update
     void Start(){
         _player = GetComponent<player>();
@@ -60,7 +62,9 @@ public class TurnHeadParallel : MonoBehaviour
     }
 
     public void turnHead2TrackSound(){
-        //if car in the trigger
-        print(TurnHeadParallel.isCarInZone);
+        //if car in the trigger, track
+        if(TurnHeadParallel.isCarInZone){
+            
+        }
     }
 }
