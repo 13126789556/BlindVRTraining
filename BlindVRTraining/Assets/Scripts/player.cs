@@ -49,10 +49,10 @@ public class player : NetworkBehaviour
     }
 
     //get unit vector of the facing direction
-    public Vector3 getUnitFacingDirection()
+    public Vector2 getUnitFacingDirection()
     {
         var cam = Camera.main.transform;
-        return new Vector3(cam.forward.x, 0, cam.forward.z).normalized;
+        return new Vector2(cam.forward.x, cam.forward.z).normalized;
     }
 
     //force player to stop
@@ -72,4 +72,5 @@ public class player : NetworkBehaviour
         location.y = transform.position.y;
         transform.position = location;
     }
+    
 }
