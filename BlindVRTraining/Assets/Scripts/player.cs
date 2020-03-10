@@ -37,7 +37,7 @@ public class player : NetworkBehaviour
         }
         Arrow.transform.forward = getUnitFacingDirection();
 
-        if (Input.GetButtonDown("Submit"))
+        if (Input.GetButtonDown("Submit") && speed != 0)
         {
             GetComponent<AudioSource>().Play();
         }

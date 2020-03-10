@@ -99,7 +99,7 @@ public class CrossStreetGuide : MonoBehaviour
                             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_PushButton);
                         }
 
-                        if (Input.GetKey(KeyCode.Space))
+                        if (Input.GetButton("Confirm"))
                         {
                             state = State.Wait;
                             sc.AllowBeep = true;

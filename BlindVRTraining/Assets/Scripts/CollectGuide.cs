@@ -57,7 +57,7 @@ public class CollectGuide : MonoBehaviour
                 duration = span;
             }
 
-            if (Input.GetKey(KeyCode.Space)) 
+            if (Input.GetButton("Confirm")) 
             {
                 other.gameObject.GetComponent<player>().isCollected = true;
             }
