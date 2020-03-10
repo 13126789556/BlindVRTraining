@@ -17,6 +17,8 @@ public class TurnHeadParallel : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        print(isCarInZone);
+        print(targetPosition);
         //turn head to track the car sound
         //TODO: instruction
         turnHead2TrackSound();

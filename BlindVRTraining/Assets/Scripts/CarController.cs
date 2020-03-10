@@ -379,15 +379,18 @@ public class CarController : NetworkBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.name == "DeadZone") { Destroy(gameObject); }
+        if (other.name == "Track Zone" && !TurnHeadParallel.isCarInZone)
+        {
+            TurnHeadParallel.isCarInZone = true;
+            isTracking = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.name == "Track Zone" && !TurnHeadParallel.isCarInZone)
-        {
-            isTracking = true;
-            TurnHeadParallel.isCarInZone = true;
-        }
+        //if (other.name == "Track Zone" && !TurnHeadParallel.isCarInZone)
+        //{
+        //}
         if (isTracking)
         {
             TurnHeadParallel.targetPosition = transform.position;
