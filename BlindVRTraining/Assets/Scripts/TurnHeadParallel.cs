@@ -8,12 +8,13 @@ public class TurnHeadParallel : MonoBehaviour
     GameObject _startPosition;
     IEnumerator coroutine;
     bool isTrackingCar;
-    bool isplayed1, isPlayed2;
+    //bool playsOUN;
     int winCondition1, winCondition2, yesCount, noCount;
     GameObject guideManager;
     GameManager gameManager;
-    
-    AudioSource audioSource;
+    AudioManager audioManager;
+    bool isPlayed1, isPlayed2;
+    public AudioClip[] audios;
     static public bool isCarInTrackZone;
     static public bool isCarComing;
     static public Vector3 targetPosition;
@@ -21,13 +22,14 @@ public class TurnHeadParallel : MonoBehaviour
     // Start is call`ed before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        isPlayed1 = isPlayed2 = false;
         //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         guideManager = GameObject.Find("GuideManager");
         _player = GetComponent<player>();
         _startPosition = GameObject.FindGameObjectWithTag("StartPosition");
         isCarInTrackZone = false;
-        isplayed1 = isPlayed2 = false;
+        //isplayed1 = isPlayed2 = false;
         winCondition1 = winCondition2 = 0;
         yesCount = noCount = 0;
         state = 0;
@@ -42,18 +44,29 @@ public class TurnHeadParallel : MonoBehaviour
             {
                 case 0:
                     //turn head to track the car sound
-                    if (!audioSource.isPlaying)
-                    {
-                        print("hi");
-                        guideManager.GetComponent<GuideManager>().playOnce(21);
+                    //print("hi");
+                    if(!isPlayed1){
+                        audioManager.flag = true;
+                        audioManager.playAudio(audios[0]);
+                        isPlayed1 = true;
+                        audioManager.isPlayed = true;
                     }
+                    //guideManager.GetComponent<GuideManager>().playOnce(21);
+
                     //else isplayed = false;
                     turnHead2TrackSound();
                     break;
                 case 1:
                     //turn left side parallel to the traffic
                     //if(!isplayed)
-                    guideManager.GetComponent<GuideManager>().playOnce(26);
+                    if(!isPlayed2){
+                        audioManager.flag = true;
+                        audioManager.playAudio(audios[5]);
+                        isPlayed2 = true;
+                        audioManager.isPlayed = true;
+                    }
+
+                    //guideManager.GetComponent<GuideManager>().playOnce(26);
                     comfirmPosition();
                     break;
             }
@@ -87,7 +100,9 @@ public class TurnHeadParallel : MonoBehaviour
                 if (isLeftSideParallel())
                 {
                     //TODO: ADD SOUND
-                    guideManager.GetComponent<GuideManager>().playOnce(Random.Range(17, 19));
+                    audioManager.flag = true;
+                    audioManager.playAudio(audios[10]);
+                    //guideManager.GetComponent<GuideManager>().playOnce(Random.Range(17, 19));
                     //print("you got it!");
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, Random.Range(-180f, 180f), this.transform.rotation.z);
                     winCondition2++;
@@ -95,7 +110,9 @@ public class TurnHeadParallel : MonoBehaviour
                 else
                 {
                     //TODO: ADD SOUND
-                    guideManager.GetComponent<GuideManager>().playOnce(30);
+                    audioManager.flag = true;
+                    audioManager.playAudio(audios[8]);
+                    //guideManager.GetComponent<GuideManager>().playOnce(30);
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, Random.Range(-180f, 180f), this.transform.rotation.z);
                     //print("try again");
                 }
@@ -106,7 +123,9 @@ public class TurnHeadParallel : MonoBehaviour
         {
             //print("Pass!");
             //todo: play sound
-            guideManager.GetComponent<GuideManager>().playOnce(27);
+            audioManager.flag = true;
+            audioManager.playAudio(audios[6]);
+            //guideManager.GetComponent<GuideManager>().playOnce(27);
             state = 3;
         }
     }
@@ -118,18 +137,21 @@ public class TurnHeadParallel : MonoBehaviour
             if (isCarComing)
             {
                 //print("there is a car coming");
-                if(targetPosition.x > 0){ //coming from left
+                if (targetPosition.x > 0)
+                { //coming from left
                     //todo: play sound
                     print("there is a car coming left");
-                    guideManager.GetComponent<GuideManager>().playOnce(22);
+                    audioManager.flag = true;
+                    audioManager.playAudio(audios[1]);
                 }
-                else if(targetPosition.x < 0){ //coming from right
-                print("there is a car coming right");
-                    guideManager.GetComponent<GuideManager>().playOnce(23);
+                else if (targetPosition.x < 0)
+                { //coming from right
+                    print("there is a car coming right");
+                    audioManager.flag = true;
+                    audioManager.playAudio(audios[2]);
                 }
                 //if the car enter the tracking zone, check if the player is looking at the car
-            }
-            //print("winCondition1: " + winCondition1);     
+            }   
         }
         else
         {
@@ -137,7 +159,8 @@ public class TurnHeadParallel : MonoBehaviour
             print(winCondition1);
             print("Pass");
             //todo: play sound
-            guideManager.GetComponent<GuideManager>().playOnce(25);
+            audioManager.flag = true;
+            audioManager.playAudio(audios[5]);
             GameManager.isTrackState = false;
             state = 1;
         }
@@ -152,7 +175,7 @@ public class TurnHeadParallel : MonoBehaviour
             Vector2 v1, v2;
             v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
             v2 = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.y);
-            if (getAngle(v1, v2) < 40)
+            if (getAngle(v1, v2) < 50)
             {
                 yesCount++;
             }
@@ -167,12 +190,15 @@ public class TurnHeadParallel : MonoBehaviour
             if (yesCount > noCount)
             {
                 winCondition1++;
-                guideManager.GetComponent<GuideManager>().playOnce(Random.Range(17, 19));
+                audioManager.flag = true;
+                audioManager.playAudio(audios[9]);
                 yesCount = noCount = 0;
             }
             else if (yesCount != 0 || noCount != 0)
             {
-                guideManager.GetComponent<GuideManager>().playList.Add(29);
+                audioManager.flag = true;
+                audioManager.playAudio(audios[7]);
+                //guideManager.GetComponent<GuideManager>().playList.Add(29);
                 yesCount = noCount = 0;
             }
         }
@@ -189,6 +215,6 @@ public class TurnHeadParallel : MonoBehaviour
         v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
         v2 = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.y);
         print(isLookingAtCar());
-        return getAngle(v1, v2) < 20;
+        return getAngle(v1, v2) < 30;
     }
 }

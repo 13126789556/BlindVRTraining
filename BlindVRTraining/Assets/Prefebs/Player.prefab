@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 3040905557212615099}
   - component: {fileID: 3040905557212615098}
   - component: {fileID: 3040905557212615101}
-  - component: {fileID: 3310254200307812319}
   - component: {fileID: 4724506879081269419}
   m_Layer: 9
   m_Name: Main Camera
@@ -185,18 +184,6 @@ MonoBehaviour:
   recorderSeamless: 0
   recorderSourceTag: Untagged
   recorderFoldout: 0
---- !u!114 &3310254200307812319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3040905557212615097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba0106ae32c6f545a7d911280bd59b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4724506879081269419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +254,7 @@ Transform:
   m_Children:
   - {fileID: 3040905557212615100}
   - {fileID: 4822282195383599034}
+  - {fileID: 8100918571657182628}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -328,7 +316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audios:
-  - {fileID: 8300000, guid: 37d7284cc20bf2b4ebfe497a1e9feb85, type: 3}
   - {fileID: 8300000, guid: 81074a6e6bf5f8a4f9ba366777d2d17a, type: 3}
   - {fileID: 8300000, guid: 017c9e629d712ba47a60a1c839dbb151, type: 3}
   - {fileID: 8300000, guid: ebf51cda5632ab545b6ba164e66a8034, type: 3}
@@ -336,6 +323,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fbc372ba7b3cad449903dc8ac8db2448, type: 3}
   - {fileID: 8300000, guid: be84d53ee52241a41b8ffb88bf60b705, type: 3}
   - {fileID: 8300000, guid: 76a91c5b745c20d4f9218e68d437f2d4, type: 3}
+  - {fileID: 8300000, guid: bf69b7394e7cbe84981c38a5e344f646, type: 3}
+  - {fileID: 8300000, guid: e5104f11f8ce5384ebd9e63e0965f2c7, type: 3}
+  - {fileID: 8300000, guid: 5ba2737b897a42146bfd5e2fe6035aba, type: 3}
+  - {fileID: 8300000, guid: b77d114ba9b10e04fafbf8afa97d6611, type: 3}
 --- !u!114 &2524671653989470442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,3 +491,82 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &3383042915413000261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8100918571657182628}
+  - component: {fileID: 30037711724320067}
+  - component: {fileID: 5780374479058011336}
+  m_Layer: 9
+  m_Name: Capsule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8100918571657182628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3383042915413000261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3040905558448218491}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &30037711724320067
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3383042915413000261}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &5780374479058011336
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3383042915413000261}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
