@@ -34,6 +34,7 @@ public class CollectGuide : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         other.gameObject.GetComponent<player>().stop();
+        duration = 0.0f;
     }
 
     private void OnTriggerStay(Collider other)
@@ -61,6 +62,7 @@ public class CollectGuide : MonoBehaviour
             {
                 guideManager.GetComponent<GuideManager>().stop();
                 other.gameObject.GetComponent<player>().isCollected = true;
+                duration = 0.0f;
             }
         }
     }

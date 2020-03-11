@@ -837,71 +837,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.size
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 81074a6e6bf5f8a4f9ba366777d2d17a, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 017c9e629d712ba47a60a1c839dbb151, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: ebf51cda5632ab545b6ba164e66a8034, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 2ec9d1fbd136f6c4897a994385207da8, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: fbc372ba7b3cad449903dc8ac8db2448, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: be84d53ee52241a41b8ffb88bf60b705, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: 76a91c5b745c20d4f9218e68d437f2d4, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[7]
-      value: 
-      objectReference: {fileID: 8300000, guid: bf69b7394e7cbe84981c38a5e344f646, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[8]
-      value: 
-      objectReference: {fileID: 8300000, guid: e5104f11f8ce5384ebd9e63e0965f2c7, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[9]
-      value: 
-      objectReference: {fileID: 8300000, guid: 5ba2737b897a42146bfd5e2fe6035aba, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[10]
-      value: 
-      objectReference: {fileID: 8300000, guid: b77d114ba9b10e04fafbf8afa97d6611, type: 3}
-    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
-        type: 3}
-      propertyPath: audios.Array.data[11]
-      value: 
-      objectReference: {fileID: 8300000, guid: a577af59ac990b546843b75ea6e636e1, type: 3}
     - target: {fileID: 2524671653989470442, guid: c9008f73c04ba5b4eb2f01387c43f207,
         type: 3}
       propertyPath: guideManager
@@ -1002,7 +937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &494190645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,8 +1030,10 @@ GameObject:
   - component: {fileID: 594973930}
   - component: {fileID: 594973932}
   - component: {fileID: 594973931}
+  - component: {fileID: 594973933}
+  - component: {fileID: 594973934}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BlindMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1157,6 +1094,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594973929}
   m_CullTransparentMesh: 0
+--- !u!114 &594973933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594973929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7bf0d51b94dae34bac1c64b171736e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &594973934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594973929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1 &676914333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,6 +2385,11 @@ PrefabInstance:
       propertyPath: guideManager
       value: 
       objectReference: {fileID: 1739048773}
+    - target: {fileID: 2302655016214587502, guid: 48aee29d119a14142b938a10e2ad868e,
+        type: 3}
+      propertyPath: blindMask
+      value: 
+      objectReference: {fileID: 594973929}
     - target: {fileID: 2302655016214587503, guid: 48aee29d119a14142b938a10e2ad868e,
         type: 3}
       propertyPath: m_LocalPosition.x
