@@ -10,12 +10,17 @@ public class TurnHeadParallel : MonoBehaviour
     bool isTrackingCar;
     int winCondition1, winCondition2, yesCount, noCount;
     GameObject guideManager;
+    GameManager gameManager;
+    public AudioClip[] audios;
+    AudioSource audioSource;
     static public bool isCarInTrackZone;
     static public bool isCarComing;
     static public Vector3 targetPosition;
     static public int state;
     // Start is call`ed before the first frame update
     void Start(){
+        audioSource = GetComponent<AudioSource>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         guideManager = GameObject.Find("GuideManager");
         _player = GetComponent<player>();
         _startPosition = GameObject.FindGameObjectWithTag("StartPosition");
@@ -30,12 +35,11 @@ public class TurnHeadParallel : MonoBehaviour
         switch (state){
             case 0:
                 //turn head to track the car sound
-                //TODO: instruction
-                guideManager.GetComponent<GuideManager>().playList.Add(21);
+                audioSource.Play();
+                //guideManager.GetComponent<GuideManager>().playList.Add(21);
                 turnHead2TrackSound();
             break;
             case 1:
-                //TODO: instruction
                 //turn left side parallel to the traffic
                 guideManager.GetComponent<GuideManager>().playList.Add(26);
                 comfirmPosition();
@@ -68,32 +72,34 @@ public class TurnHeadParallel : MonoBehaviour
             //check if the player is in the right position
                 if(isLeftSideParallel()){
                     //TODO: ADD SOUND
-                    print("you got it!");
+                    guideManager.GetComponent<GuideManager>().playList.Add(Random.Range(17,19));
+                    //print("you got it!");
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.y, Random.Range(-180f, 180f), this.transform.rotation.y);
                     winCondition2 ++;
                 }
                 else{
                     //TODO: ADD SOUND
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.y, Random.Range(-180f, 180f), this.transform.rotation.y);
-                    print("try again");
+                    //print("try again");
                 }
-                print("confirm");
+                //print("confirm");
             }
         }
         else{
-            print("Pass!");
+            //print("Pass!");
             //todo: play sound
             guideManager.GetComponent<GuideManager>().playList.Add(27);
+            state = 3;
         }
     }
 
     public void turnHead2TrackSound(){
         if(winCondition1<4){
             if(isCarComing){   
-            print("there is a car coming");
+            //print("there is a car coming");
             //if the car enter the tracking zone, check if the player is looking at the car
             } 
-            print("winCondition1: " + winCondition1);     
+            //print("winCondition1: " + winCondition1);     
         }
         else{
             winCondition1 = 0;
@@ -101,6 +107,7 @@ public class TurnHeadParallel : MonoBehaviour
             print("Pass");
             //todo: play sound
             guideManager.GetComponent<GuideManager>().playList.Add(25);
+            GameManager.isTrackState = false;
             state = 1;
         }
 
