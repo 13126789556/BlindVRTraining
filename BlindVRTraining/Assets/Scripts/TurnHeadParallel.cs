@@ -9,13 +9,14 @@ public class TurnHeadParallel : MonoBehaviour
     IEnumerator coroutine;
     bool isTrackingCar;
     int winCondition1, winCondition2, yesCount, noCount;
+    GameObject guideManager;
     static public bool isCarInTrackZone;
     static public bool isCarComing;
     static public Vector3 targetPosition;
     static public int state;
-
     // Start is call`ed before the first frame update
     void Start(){
+        guideManager = GameObject.Find("GuideManager");
         _player = GetComponent<player>();
         _startPosition = GameObject.FindGameObjectWithTag("StartPosition");
         isCarInTrackZone = false;
@@ -26,13 +27,21 @@ public class TurnHeadParallel : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        //turn head to track the car sound
-        //TODO: instruction
-        turnHead2TrackSound();
+        switch (state){
+            case 0:
+                //turn head to track the car sound
+                //TODO: instruction
+                guideManager.GetComponent<GuideManager>().playList.Add(21);
+                turnHead2TrackSound();
+            break;
+            case 1:
+                //TODO: instruction
+                //turn left side parallel to the traffic
+                guideManager.GetComponent<GuideManager>().playList.Add(26);
+                comfirmPosition();
+            break;
+        }
 
-        //TODO: instruction
-        //turn left side parallel to the traffic
-        comfirmPosition();
     }
     // Update is called once per frame
 
@@ -74,6 +83,7 @@ public class TurnHeadParallel : MonoBehaviour
         else{
             print("Pass!");
             //todo: play sound
+            guideManager.GetComponent<GuideManager>().playList.Add(27);
         }
     }
 
@@ -82,13 +92,16 @@ public class TurnHeadParallel : MonoBehaviour
             if(isCarComing){   
             print("there is a car coming");
             //if the car enter the tracking zone, check if the player is looking at the car
-            }       
+            } 
+            print("winCondition1: " + winCondition1);     
         }
         else{
             winCondition1 = 0;
             print(winCondition1);
             print("Pass");
             //todo: play sound
+            guideManager.GetComponent<GuideManager>().playList.Add(25);
+            state = 1;
         }
 
     }
@@ -96,22 +109,25 @@ public class TurnHeadParallel : MonoBehaviour
     private IEnumerator checkTracking(){
         yield return new WaitForSeconds(0.5f);
         if(isCarInTrackZone){
-            print("Hi");
             Vector2 v1, v2;
             v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
             v2 = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.y);
             if(getAngle(v1,v2) < 50) {
-                print("Yes");
+                
                 yesCount ++;
             }else{
                 noCount ++;
-                print("No");
+                
             }
-            if(yesCount>noCount){
-                winCondition1++;
+        }
+        else if(!isCarInTrackZone){ // the target car is out of the track zone
+            //compare these count
+            print("Yes " + yesCount);
+            print("No " + noCount);
+            if(yesCount > noCount){
+                winCondition1 ++;
+                yesCount = noCount = 0;
             }
-            //else isTrackingCar = false;
-            //print(getAngle(v1,v2));
         }
         StartCoroutine(checkTracking());
     } 
