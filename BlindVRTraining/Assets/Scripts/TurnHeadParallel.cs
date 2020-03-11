@@ -111,7 +111,7 @@ public class TurnHeadParallel : MonoBehaviour
                 {
                     //TODO: ADD SOUND
                     audioManager.flag = true;
-                    audioManager.playAudio(audios[2]);
+                    audioManager.playAudio(audios[8]);
                     //guideManager.GetComponent<GuideManager>().playOnce(30);
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, Random.Range(-180f, 180f), this.transform.rotation.z);
                     //print("try again");
@@ -151,8 +151,7 @@ public class TurnHeadParallel : MonoBehaviour
                     audioManager.playAudio(audios[2]);
                 }
                 //if the car enter the tracking zone, check if the player is looking at the car
-            }
-            //print("winCondition1: " + winCondition1);     
+            }   
         }
         else
         {
@@ -176,7 +175,7 @@ public class TurnHeadParallel : MonoBehaviour
             Vector2 v1, v2;
             v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
             v2 = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.y);
-            if (getAngle(v1, v2) < 40)
+            if (getAngle(v1, v2) < 50)
             {
                 yesCount++;
             }
@@ -216,6 +215,6 @@ public class TurnHeadParallel : MonoBehaviour
         v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
         v2 = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.y);
         print(isLookingAtCar());
-        return getAngle(v1, v2) < 20;
+        return getAngle(v1, v2) < 30;
     }
 }
