@@ -387,7 +387,12 @@ public class CarController : NetworkBehaviour
         {
             isTracking = true;
             TurnHeadParallel.isCarInTrackZone = true;
+
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
         if (isTracking)
         {
             TurnHeadParallel.targetPosition = transform.position;
