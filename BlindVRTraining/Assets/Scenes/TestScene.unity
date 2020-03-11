@@ -769,6 +769,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2524671653989470442, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: guideManager
+      value: 
+      objectReference: {fileID: 601220535}
     - target: {fileID: 3040905558448218470, guid: c9008f73c04ba5b4eb2f01387c43f207,
         type: 3}
       propertyPath: m_Name
@@ -987,6 +992,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5ba2737b897a42146bfd5e2fe6035aba, type: 3}
   - {fileID: 8300000, guid: b77d114ba9b10e04fafbf8afa97d6611, type: 3}
   - {fileID: 8300000, guid: a577af59ac990b546843b75ea6e636e1, type: 3}
+  - {fileID: 8300000, guid: efd79e1cabfe0664fb5c65154355899c, type: 3}
 --- !u!4 &601220537
 Transform:
   m_ObjectHideFlags: 0
