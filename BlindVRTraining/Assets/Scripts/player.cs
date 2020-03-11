@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class player : NetworkBehaviour
 {
-    [SerializeField] private float speed = 2.0f;
+    [SerializeField] private float speed = 2.8f;
     [SerializeField] private GameObject Arrow;
     public bool isCollected = false;
     Rigidbody rb;
@@ -84,7 +84,7 @@ public class player : NetworkBehaviour
     //allow player keep moving
     public void move()
     {
-        speed = 2.0f;
+        speed = 2.8f;
     }
     
     public float getSpeed()
