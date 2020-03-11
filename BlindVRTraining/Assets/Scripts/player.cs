@@ -16,7 +16,7 @@ public class player : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        if (isClient)
+        if (!isServer)
         {
             transform.position = new Vector3(0, 10, -15);
         }
