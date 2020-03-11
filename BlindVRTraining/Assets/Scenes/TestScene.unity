@@ -2855,7 +2855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2302655016214587502, guid: 48aee29d119a14142b938a10e2ad868e,
         type: 3}
-      propertyPath: timeMutipler
+      propertyPath: isTrackState
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2302655016214587503, guid: 48aee29d119a14142b938a10e2ad868e,
