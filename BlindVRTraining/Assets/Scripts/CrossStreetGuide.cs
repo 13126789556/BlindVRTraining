@@ -86,10 +86,33 @@ public class CrossStreetGuide : MonoBehaviour
                     {
                         Vector3 playerFaceDir = other.gameObject.GetComponent<player>().getUnitFacingDirection();
                         float dot = Vector3.Dot(direction, playerFaceDir);
+                        int index = -1;
                         if (dot >= 0.7f)
                         {
                             state = State.Push_To_Walk;
                             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_PushButton);
+                            break;
+                        }
+                        else if (dot <= -0.7f)
+                        {
+                            index = (int)GuideManager.GuideDic._Direction_Back;
+                        }
+                        else
+                        {
+                            Vector3 cross = Vector3.Cross(playerFaceDir, direction);
+                            if (cross.y > 0)
+                            {
+                                index = (int)GuideManager.GuideDic._Direction_Right;
+                            }
+                            else if (cross.y < 0)
+                            {
+                                index = (int)GuideManager.GuideDic._Direction_Left;
+                            }
+                        }
+                        if (index != -1 && guideManager.GetComponent<GuideManager>().span >= span)
+                        {
+                            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._XStreet_Direction);
+                            guideManager.GetComponent<GuideManager>().playList.Add(index);
                         }
                     }
                     break;
