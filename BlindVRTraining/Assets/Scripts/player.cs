@@ -22,10 +22,12 @@ public class player : NetworkBehaviour
         }
         if (!isServer)
         {
-            transform.position = new Vector3(0, 10, -15);
-            transform.rotation = new Quaternion(0.5f, -0.5f, 0.5f, 0.5f);
-            Camera.main.orthographic = true;
-            Camera.main.orthographicSize = 32;
+            var cam = Camera.main;
+            cam.transform.SetParent(null);
+            cam.transform.position = new Vector3(0, 10, -15);
+            cam.transform.rotation = new Quaternion(0.5f, -0.5f, 0.5f, 0.5f);
+            cam.orthographic = true;
+            cam.orthographicSize = 32;
         }
     }
 
@@ -50,7 +52,7 @@ public class player : NetworkBehaviour
         {
             rb.velocity = Vector3.zero;
         }
-        Arrow.transform.forward = getUnitFacingDirection();
+        Arrow.transform.forward = getUnitFacingDirection() == Vector3.zero ? Vector3.forward : getUnitFacingDirection();
 
         if (Input.GetButtonDown("Submit") && speed != 0)
         {
