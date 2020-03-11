@@ -383,21 +383,22 @@ public class CarController : NetworkBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.name == "Track Zone" && !TurnHeadParallel.isCarInZone)
+        if (other.name == "Track Zone" && !TurnHeadParallel.isCarInTrackZone)
         {
             isTracking = true;
-            TurnHeadParallel.isCarInZone = true;
+            TurnHeadParallel.isCarInTrackZone = true;
         }
         if (isTracking)
         {
             TurnHeadParallel.targetPosition = transform.position;
         }
     }
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.name == "Track Zone")
         {
-            TurnHeadParallel.isCarInZone = false;
+            TurnHeadParallel.isCarInTrackZone = false;
             isTracking = false;
         }
     }
