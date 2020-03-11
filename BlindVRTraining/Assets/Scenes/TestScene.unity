@@ -401,6 +401,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 271346499}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &271346501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1395089725672690719, guid: 4aab4b7f7d3fea540bf47f02565c901f,
+    type: 3}
+  m_PrefabInstance: {fileID: 271346499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &307608395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,8 +1168,8 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -1}
   - {x: 1, y: 0, z: 0}
   Singnals:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 271346501}
+  - {fileID: 1179198131}
   state: 2
 --- !u!65 &742869695
 BoxCollider:
@@ -1227,8 +1233,8 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 1}
   - {x: 0, y: 0, z: 1}
   Singnals:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 271346501}
+  - {fileID: 271346501}
   state: 2
 --- !u!65 &769813407
 BoxCollider:
