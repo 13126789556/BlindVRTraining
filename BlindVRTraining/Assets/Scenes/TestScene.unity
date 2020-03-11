@@ -937,7 +937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &494190645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,6 +1413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guideManager: {fileID: 0}
+  signal: {fileID: 0}
+  position: {x: 0, y: 0, z: 0}
+  isInSafeZone: 1
 --- !u!1001 &866639362
 PrefabInstance:
   m_ObjectHideFlags: 0

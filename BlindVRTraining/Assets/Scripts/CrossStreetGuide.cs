@@ -33,6 +33,7 @@ public class CrossStreetGuide : MonoBehaviour
         {
             state = State.Guide_Direction;
             other.gameObject.GetComponent<player>().stop();
+            other.gameObject.GetComponent<EncouragementGuide>().isInSafeZone = true;
 
             if (!other.gameObject.GetComponent<player>().isCollected)
             {
@@ -124,6 +125,8 @@ public class CrossStreetGuide : MonoBehaviour
     {
         istriggered = false;
         other.gameObject.GetComponent<EncouragementGuide>().position = transform.position;
+        other.gameObject.GetComponent<EncouragementGuide>().signal = sc;
+        other.gameObject.GetComponent<EncouragementGuide>().isInSafeZone = false;
         if (!sc.AllowGoStraight)
         {
             guideManager.GetComponent<GuideManager>().stop();

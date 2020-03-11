@@ -42,6 +42,7 @@ public class TutorialGuide : MonoBehaviour
         {
             other.gameObject.GetComponent<TurnHeadParallel>().enabled = false;
             other.gameObject.GetComponent<player>().stop();
+            other.gameObject.GetComponent<EncouragementGuide>().isInSafeZone = true;
 
             if (other.gameObject.GetComponent<player>().isCollected)
             {
@@ -143,6 +144,8 @@ public class TutorialGuide : MonoBehaviour
     {
         istriggered = false;
         other.gameObject.GetComponent<EncouragementGuide>().position = transform.position;
+        other.gameObject.GetComponent<EncouragementGuide>().signal = Singnal.GetComponent<SignalController>();
+        other.gameObject.GetComponent<EncouragementGuide>().isInSafeZone = false;
         if (!sc.AllowGoStraight)
         {
             guideManager.GetComponent<GuideManager>().stop();
