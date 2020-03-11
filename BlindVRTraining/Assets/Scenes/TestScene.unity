@@ -947,6 +947,7 @@ GameObject:
   - component: {fileID: 601220537}
   - component: {fileID: 601220536}
   - component: {fileID: 601220538}
+  - component: {fileID: 601220539}
   m_Layer: 0
   m_Name: GuideManager
   m_TagString: Untagged
@@ -987,6 +988,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5ba2737b897a42146bfd5e2fe6035aba, type: 3}
   - {fileID: 8300000, guid: b77d114ba9b10e04fafbf8afa97d6611, type: 3}
   - {fileID: 8300000, guid: a577af59ac990b546843b75ea6e636e1, type: 3}
+  - {fileID: 8300000, guid: efd79e1cabfe0664fb5c65154355899c, type: 3}
 --- !u!4 &601220537
 Transform:
   m_ObjectHideFlags: 0
@@ -1097,6 +1099,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &601220539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601220535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!1 &676914333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,6 +2847,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AssetId.i15
       value: 142
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302655016214587502, guid: 48aee29d119a14142b938a10e2ad868e,
+        type: 3}
+      propertyPath: timeMutipler
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2302655016214587503, guid: 48aee29d119a14142b938a10e2ad868e,
         type: 3}

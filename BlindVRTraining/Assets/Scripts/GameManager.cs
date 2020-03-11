@@ -9,6 +9,7 @@ public class GameManager : NetworkBehaviour
     public int maxCarCount = 30;
     IntersectionController _ic;
     float timer;
+    bool isTrackState = true;
     //NetworkManager networkManager;
     void Start()
     {
@@ -27,17 +28,32 @@ public class GameManager : NetworkBehaviour
 
     void Update()
     {
-        if(!isServer)
+        if (!isServer)
         { return; }
-        timer -= Time.deltaTime;
-        if(timer <= 0 && CarController.carCount <= maxCarCount)
+            timer -= Time.deltaTime;
+        if (isTrackState)
         {
-            var tempCar = Instantiate(car);
-            var tempCarController = tempCar.GetComponent<CarController>();
-            //tempCarController.behavior = CarController.Behavior.GoStraight;
-            //tempCarController.sourceDir = CarController.Direction.East;
-            timer = Random.Range(2,6);
-            NetworkServer.Spawn(tempCar);
+            if (timer <= 0 && CarController.carCount <= maxCarCount)
+            {
+                var tempCar = Instantiate(car);
+                var tempCarController = tempCar.GetComponent<CarController>();
+                tempCarController.sourceDir = CarController.Direction.Sorth;
+                timer = Random.Range(10, 15);
+            }
+        }
+        else
+        {
+            //Time.timeScale = timeMutipler;
+            //timer -= Time.deltaTime;
+            if (timer <= 0 && CarController.carCount <= maxCarCount)
+            {
+                var tempCar = Instantiate(car);
+                var tempCarController = tempCar.GetComponent<CarController>();
+                //tempCarController.behavior = CarController.Behavior.GoStraight;
+                //tempCarController.sourceDir = CarController.Direction.East;
+                timer = Random.Range(2, 6);
+                NetworkServer.Spawn(tempCar);
+            }
         }
     }
 

@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class GuideManager : MonoBehaviour
+public class GuideManager : NetworkBehaviour
 {
     public enum GuideDic
     {
@@ -46,6 +47,10 @@ public class GuideManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isServer)
+        {
+            return;
+        }
         if (!audiosource.isPlaying)
         {
             if (index < playList.Count)

@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class EncouragementGuide : MonoBehaviour
+public class EncouragementGuide : NetworkBehaviour
 {
     public GameObject guideManager;
     private float span = 6.0f;
@@ -16,6 +17,10 @@ public class EncouragementGuide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isServer)
+        {
+            return;
+        }
         if (guideManager.GetComponent<GuideManager>().span >= span) 
         {
             if (GetComponent<player>().getSpeed() != 0)
