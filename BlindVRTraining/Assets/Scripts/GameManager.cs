@@ -39,6 +39,7 @@ public class GameManager : NetworkBehaviour
             if (Input.GetButton("Confirm") || Input.GetButton("Submit"))
             {
                 isStart = false;
+                guideManager.GetComponent<AudioSource>().Stop();
             }
         }
         else if (isTrackState)
