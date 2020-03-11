@@ -8,6 +8,7 @@ public class TurnHeadParallel : MonoBehaviour
     GameObject _startPosition;
     IEnumerator coroutine;
     bool isTrackingCar;
+    bool isplayed = false;
     int winCondition1, winCondition2, yesCount, noCount;
     GameObject guideManager;
     GameManager gameManager;
@@ -36,25 +37,27 @@ public class TurnHeadParallel : MonoBehaviour
             switch (state){
                 case 0:
                     //turn head to track the car sound
-                    if(!audioSource.isPlaying){
+                    if(!audioSource.isPlaying && !isplayed){
                         print("hi");
-                        audioSource.clip = audios[1];
-                        audioSource.Play();
+                        //audioSource.PlayOneShot(audios[1], 1);
+                        // audioSource.clip = audios[1];
+                        // audioSource.volume = 1;
+                        // audioSource.Play();
+                        guideManager.GetComponent<GuideManager>();
+                        isplayed = true;
                     }
-                    //guideManager.GetComponent<GuideManager>().playList.Add(21);
+                    //else isplayed = false;
                     turnHead2TrackSound();
                 break;
                 case 1:
                     //turn left side parallel to the traffic
+                    //if(!isplayed)
                     guideManager.GetComponent<GuideManager>().playList.Add(26);
                     comfirmPosition();
                 break;
             }
         }
-
     }
-    // Update is called once per frame
-
     public bool isLeftSideParallel()
     {
         Vector2 v1 = new Vector2(_player.getUnitFacingDirection().x, _player.getUnitFacingDirection().z);
