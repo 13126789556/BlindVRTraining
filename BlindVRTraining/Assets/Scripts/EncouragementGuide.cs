@@ -21,7 +21,7 @@ public class EncouragementGuide : NetworkBehaviour
         {
             return;
         }
-        if (guideManager.GetComponent<GuideManager>().span >= span) 
+        if (guideManager.GetComponent<GuideManager>().span >= span && TurnHeadParallel.state == 3) 
         {
             if (GetComponent<player>().getSpeed() != 0)
             {
