@@ -43,6 +43,7 @@ public class TurnHeadParallel : MonoBehaviour
             switch (state)
             {
                 case 0:
+                _player.stop();
                     //turn head to track the car sound
                     //print("hi");
                     if(!isPlayed1){
@@ -52,11 +53,13 @@ public class TurnHeadParallel : MonoBehaviour
                         audioManager.isPlayed = true;
                     }
                     //guideManager.GetComponent<GuideManager>().playOnce(21);
-
                     //else isplayed = false;
                     turnHead2TrackSound();
                     break;
                 case 1:
+                    StopAllCoroutines();
+                    print("Stopped " + Time.time);
+                    _player.stop();
                     //turn left side parallel to the traffic
                     //if(!isplayed)
                     if(!isPlayed2){
@@ -127,6 +130,7 @@ public class TurnHeadParallel : MonoBehaviour
             audioManager.playAudio(audios[6]);
             //guideManager.GetComponent<GuideManager>().playOnce(27);
             state = 3;
+            _player.move();
         }
     }
 
@@ -170,7 +174,10 @@ public class TurnHeadParallel : MonoBehaviour
     private IEnumerator checkTracking()
     {
         yield return new WaitForSeconds(0.5f);
-        if (isCarInTrackZone)
+        if(state == 0){
+
+        }
+        if (isCarInTrackZone && state == 0)
         {
             Vector2 v1, v2;
             v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
@@ -184,7 +191,7 @@ public class TurnHeadParallel : MonoBehaviour
                 noCount++;
             }
         }
-        else if (!isCarInTrackZone)
+        else if (!isCarInTrackZone && state == 0)
         { // the target car is out of the track zone
             //compare these count
             if (yesCount > noCount)
@@ -202,7 +209,7 @@ public class TurnHeadParallel : MonoBehaviour
                 yesCount = noCount = 0;
             }
         }
-        StartCoroutine(checkTracking());
+        yield return StartCoroutine(checkTracking());
     }
 
     public bool isLookingAtCar()
