@@ -8,11 +8,11 @@ public class TurnHeadParallel : MonoBehaviour
     GameObject _startPosition;
     IEnumerator coroutine;
     bool isTrackingCar;
-    bool isplayed = false;
+    bool isplayed1, isPlayed2;
     int winCondition1, winCondition2, yesCount, noCount;
     GameObject guideManager;
     GameManager gameManager;
-    public AudioClip[] audios;
+    
     AudioSource audioSource;
     static public bool isCarInTrackZone;
     static public bool isCarComing;
@@ -27,6 +27,7 @@ public class TurnHeadParallel : MonoBehaviour
         _player = GetComponent<player>();
         _startPosition = GameObject.FindGameObjectWithTag("StartPosition");
         isCarInTrackZone = false;
+        isplayed1 = isPlayed2 = false;
         winCondition1 = winCondition2 = 0;
         yesCount = noCount = 0;
         state = 0;
@@ -41,11 +42,10 @@ public class TurnHeadParallel : MonoBehaviour
             {
                 case 0:
                     //turn head to track the car sound
-                    if (!audioSource.isPlaying && !isplayed)
+                    if (!audioSource.isPlaying)
                     {
                         print("hi");
                         guideManager.GetComponent<GuideManager>().playOnce(21);
-                        isplayed = true;
                     }
                     //else isplayed = false;
                     turnHead2TrackSound();
@@ -63,7 +63,7 @@ public class TurnHeadParallel : MonoBehaviour
     {
         Vector2 v1 = new Vector2(_player.getUnitFacingDirection().x, _player.getUnitFacingDirection().z);
         Vector2 v2 = new Vector2(0f, 1f);
-        return getAngle(v1, v2) < 15f;
+        return getAngle(v1, v2) < 30f;
     }
 
     public float getAngle(Vector2 v1, Vector2 v2)
@@ -89,14 +89,14 @@ public class TurnHeadParallel : MonoBehaviour
                     //TODO: ADD SOUND
                     guideManager.GetComponent<GuideManager>().playOnce(Random.Range(17, 19));
                     //print("you got it!");
-                    this.transform.rotation = Quaternion.Euler(this.transform.rotation.y, Random.Range(-180f, 180f), this.transform.rotation.y);
+                    this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, Random.Range(-180f, 180f), this.transform.rotation.z);
                     winCondition2++;
                 }
                 else
                 {
                     //TODO: ADD SOUND
                     guideManager.GetComponent<GuideManager>().playOnce(30);
-                    this.transform.rotation = Quaternion.Euler(this.transform.rotation.y, Random.Range(-180f, 180f), this.transform.rotation.y);
+                    this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, Random.Range(-180f, 180f), this.transform.rotation.z);
                     //print("try again");
                 }
                 //print("confirm");
@@ -118,12 +118,12 @@ public class TurnHeadParallel : MonoBehaviour
             if (isCarComing)
             {
                 //print("there is a car coming");
-                if(targetPosition.x < 0){ //coming from left
+                if(targetPosition.x > 0){ //coming from left
                     //todo: play sound
                     print("there is a car coming left");
                     guideManager.GetComponent<GuideManager>().playOnce(22);
                 }
-                else if(targetPosition.x > 0){ //coming from right
+                else if(targetPosition.x < 0){ //coming from right
                 print("there is a car coming right");
                     guideManager.GetComponent<GuideManager>().playOnce(23);
                 }
@@ -152,7 +152,7 @@ public class TurnHeadParallel : MonoBehaviour
             Vector2 v1, v2;
             v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
             v2 = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.y);
-            if (getAngle(v1, v2) < 20)
+            if (getAngle(v1, v2) < 40)
             {
                 yesCount++;
             }
@@ -172,7 +172,7 @@ public class TurnHeadParallel : MonoBehaviour
             }
             else if (yesCount != 0 || noCount != 0)
             {
-                guideManager.GetComponent<GuideManager>().playOnce(29);
+                guideManager.GetComponent<GuideManager>().playList.Add(29);
                 yesCount = noCount = 0;
             }
         }
