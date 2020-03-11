@@ -32,18 +32,24 @@ public class TurnHeadParallel : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        switch (state){
-            case 0:
-                //turn head to track the car sound
-                audioSource.Play();
-                //guideManager.GetComponent<GuideManager>().playList.Add(21);
-                turnHead2TrackSound();
-            break;
-            case 1:
-                //turn left side parallel to the traffic
-                guideManager.GetComponent<GuideManager>().playList.Add(26);
-                comfirmPosition();
-            break;
+        if(GameManager.isStart == false){
+            switch (state){
+                case 0:
+                    //turn head to track the car sound
+                    if(!audioSource.isPlaying){
+                        print("hi");
+                        audioSource.clip = audios[1];
+                        audioSource.Play();
+                    }
+                    //guideManager.GetComponent<GuideManager>().playList.Add(21);
+                    turnHead2TrackSound();
+                break;
+                case 1:
+                    //turn left side parallel to the traffic
+                    guideManager.GetComponent<GuideManager>().playList.Add(26);
+                    comfirmPosition();
+                break;
+            }
         }
 
     }
@@ -129,8 +135,6 @@ public class TurnHeadParallel : MonoBehaviour
         }
         else if(!isCarInTrackZone){ // the target car is out of the track zone
             //compare these count
-            //print("Yes " + yesCount);
-            //print("No " + noCount);
             if(yesCount > noCount){
                 winCondition1 ++;
                 yesCount = noCount = 0;

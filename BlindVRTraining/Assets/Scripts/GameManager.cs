@@ -10,7 +10,7 @@ public class GameManager : NetworkBehaviour
     public int maxCarCount = 30;
     IntersectionController _ic;
     float timer;
-    static public bool isStart = false;
+    static public bool isStart = true;
     static public bool isTrackState = false;
     //NetworkManager networkManager;
     void Start()
@@ -39,6 +39,7 @@ public class GameManager : NetworkBehaviour
             if (Input.GetButton("Confirm") || Input.GetButton("Submit"))
             {
                 isStart = false;
+                guideManager.GetComponent<AudioSource>().Stop();
             }
         }
         else if (isTrackState)
