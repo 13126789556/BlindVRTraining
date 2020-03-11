@@ -40,6 +40,7 @@ public class TutorialGuide : MonoBehaviour
     {
         if (other.tag == "Player" && !istriggered)
         {
+            other.gameObject.GetComponent<TurnHeadParallel>().enabled = false;
             other.gameObject.GetComponent<player>().stop();
 
             if (other.gameObject.GetComponent<player>().isCollected)
