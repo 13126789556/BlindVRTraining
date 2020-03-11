@@ -32,18 +32,20 @@ public class TurnHeadParallel : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        switch (state){
-            case 0:
-                //turn head to track the car sound
-                audioSource.Play();
-                //guideManager.GetComponent<GuideManager>().playList.Add(21);
-                turnHead2TrackSound();
-            break;
-            case 1:
-                //turn left side parallel to the traffic
-                guideManager.GetComponent<GuideManager>().playList.Add(26);
-                comfirmPosition();
-            break;
+        if(GameManager.isStart){
+            switch (state){
+                case 0:
+                    //turn head to track the car sound
+                    audioSource.Play();
+                    //guideManager.GetComponent<GuideManager>().playList.Add(21);
+                    turnHead2TrackSound();
+                break;
+                case 1:
+                    //turn left side parallel to the traffic
+                    guideManager.GetComponent<GuideManager>().playList.Add(26);
+                    comfirmPosition();
+                break;
+            }
         }
 
     }
