@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58282ae244826914ebd6a7866a03becf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guideManager: {fileID: 0}
+  guideManager: {fileID: 1739048773}
   directions:
   - {x: 0, y: 0, z: 1}
   - {x: 0, y: 0, z: 1}
