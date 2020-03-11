@@ -165,6 +165,7 @@ MonoBehaviour:
   speed: 10
   leftTurnRadius: 7.5
   rightTurnRadius: 2.5
+  distanceFormIntersection: 0
   behavior: 1
 --- !u!82 &6528692145581415911
 AudioSource:
@@ -186,7 +187,7 @@ AudioSource:
   Spatialize: 1
   SpatializePostEffects: 1
   Priority: 128
-  DopplerLevel: 0
+  DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0

@@ -33,14 +33,23 @@ public class GameManager : NetworkBehaviour
         timer -= Time.deltaTime;
         if (isTrackState)
         {
-            if (timer <= 0 && CarController.carCount <= maxCarCount)
+            _ic.intersectionState = IntersectionController.IntersectionState.State1;
+            if (timer <= 0 && CarController.carCount <= 2)
             {
                 var tempCar = Instantiate(car);
                 var tempCarController = tempCar.GetComponent<CarController>();
-                tempCarController.sourceDir = CarController.Direction.Sorth;
-                tempCarController.distanceFormIntersection = 130;
+                if (Random.Range(0, 2) < 1)
+                {
+                    tempCarController.sourceDir = CarController.Direction.Sorth;
+                    tempCarController.distanceFormIntersection = 150;
+                }
+                else
+                {
+                    tempCarController.sourceDir = CarController.Direction.North;
+                    tempCarController.distanceFormIntersection = 60;
+                }
                 tempCarController.behavior = CarController.Behavior.GoStraight;
-                timer = Random.Range(4, 5);
+                timer = Random.Range(14, 18);
                 NetworkServer.Spawn(tempCar);
             }
         }
