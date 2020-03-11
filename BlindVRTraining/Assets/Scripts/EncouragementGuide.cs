@@ -46,7 +46,7 @@ public class EncouragementGuide : NetworkBehaviour
             guideManager.GetComponent<GuideManager>().span = 0.0f;
         }
 
-        if (signal.AllowGoStraight != true && !isInSafeZone)
+        if (signal!=null&&signal.AllowGoStraight != true && !isInSafeZone)
         {
             GetComponent<player>().resetLocation(position);
             guideManager.GetComponent<GuideManager>().stop();

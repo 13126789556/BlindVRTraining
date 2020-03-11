@@ -95,7 +95,7 @@ public class TurnHeadParallel : MonoBehaviour
 
     public void comfirmPosition()
     {
-        if (winCondition2 < 4)
+        if (winCondition2 < 3)
         {
             if (Input.GetButtonDown("Confirm"))
             {
@@ -222,6 +222,6 @@ public class TurnHeadParallel : MonoBehaviour
         v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
         v2 = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.y);
         print(isLookingAtCar());
-        return getAngle(v1, v2) < 30;
+        return getAngle(v1, v2) < 40;
     }
 }
