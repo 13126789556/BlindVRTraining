@@ -35,7 +35,9 @@ public class GuideManager : NetworkBehaviour
         _Instruction_5 = 25,
         _Instruction_6 = 26,
         _Instruction_7 = 27,
-        _Intro = 28
+        _Intro = 28,
+        _Fail_1 = 29,
+        _Fail_2 = 30
         
     };
 
@@ -79,5 +81,19 @@ public class GuideManager : NetworkBehaviour
         {
             span = 0.0f;
         }
+    }
+
+    public void playOnce(int index) 
+    {
+        int i = 0;
+        while (i < playList.Count) 
+        {
+            if (index == playList[i])
+            {
+                return;
+            }
+            i++;
+        }
+        playList.Add(index);
     }
 }

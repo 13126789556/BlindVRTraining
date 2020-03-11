@@ -11,7 +11,7 @@ public class GameManager : NetworkBehaviour
     IntersectionController _ic;
     float timer;
     static public bool isStart = true;
-    static public bool isTrackState = false;
+    static public bool isTrackState = true;
     //NetworkManager networkManager;
     void Start()
     {
