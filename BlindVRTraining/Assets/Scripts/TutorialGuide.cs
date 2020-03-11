@@ -142,8 +142,10 @@ public class TutorialGuide : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         istriggered = false;
+        other.gameObject.GetComponent<EncouragementGuide>().position = transform.position;
         if (!sc.AllowGoStraight)
         {
+            guideManager.GetComponent<GuideManager>().stop();
             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Error_HurtByCar);
             other.gameObject.GetComponent<player>().resetLocation(transform.position);
         }

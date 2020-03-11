@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class EncouragementGuide : NetworkBehaviour
 {
     public GameObject guideManager;
+    public Vector3 position;
     private float span = 6.0f;
 
     // Start is called before the first frame update
@@ -45,6 +46,16 @@ public class EncouragementGuide : NetworkBehaviour
             }
 
             guideManager.GetComponent<GuideManager>().span = 0.0f;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "car")
+        {
+            Debug.Log("tesssssssssst");
+            GetComponent<player>().resetLocation(position);
+            guideManager.GetComponent<GuideManager>().stop();
+            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Error_HurtByCar);
         }
     }
 }
