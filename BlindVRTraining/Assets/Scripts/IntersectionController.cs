@@ -81,7 +81,7 @@ public class IntersectionController : MonoBehaviour
                 if (i >= signalInterval)
                 {
                     i = 0;
-                    intersectionState = IntersectionState.State5;
+                    intersectionState = IntersectionState.State1;
                 }
                 break;
             case IntersectionState.State5:
