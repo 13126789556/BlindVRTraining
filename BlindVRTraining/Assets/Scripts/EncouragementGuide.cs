@@ -15,13 +15,13 @@ public class EncouragementGuide : NetworkBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!isServer)
         {
             return;
         }
-        if (guideManager.GetComponent<GuideManager>().span >= span) 
+        if (guideManager.GetComponent<GuideManager>().span >= span && TurnHeadParallel.state == 3) 
         {
             if (GetComponent<player>().getSpeed() != 0)
             {
