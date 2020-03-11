@@ -34,7 +34,8 @@ public class GuideManager : NetworkBehaviour
         _Instruction_4 = 24,
         _Instruction_5 = 25,
         _Instruction_6 = 26,
-        _Instruction_7 = 27
+        _Instruction_7 = 27,
+        _Intro = 28
         
     };
 
