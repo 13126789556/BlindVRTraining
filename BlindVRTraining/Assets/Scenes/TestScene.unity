@@ -837,6 +837,71 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 81074a6e6bf5f8a4f9ba366777d2d17a, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 017c9e629d712ba47a60a1c839dbb151, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ebf51cda5632ab545b6ba164e66a8034, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ec9d1fbd136f6c4897a994385207da8, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: fbc372ba7b3cad449903dc8ac8db2448, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: be84d53ee52241a41b8ffb88bf60b705, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 76a91c5b745c20d4f9218e68d437f2d4, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: bf69b7394e7cbe84981c38a5e344f646, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: e5104f11f8ce5384ebd9e63e0965f2c7, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ba2737b897a42146bfd5e2fe6035aba, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: b77d114ba9b10e04fafbf8afa97d6611, type: 3}
+    - target: {fileID: 2104808056958083755, guid: c9008f73c04ba5b4eb2f01387c43f207,
+        type: 3}
+      propertyPath: audios.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: a577af59ac990b546843b75ea6e636e1, type: 3}
     - target: {fileID: 2524671653989470442, guid: c9008f73c04ba5b4eb2f01387c43f207,
         type: 3}
       propertyPath: guideManager
@@ -1998,16 +2063,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a61b9cd018900b4fb2c86de14229f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audios:
-  - {fileID: 8300000, guid: 81074a6e6bf5f8a4f9ba366777d2d17a, type: 3}
-  - {fileID: 8300000, guid: 017c9e629d712ba47a60a1c839dbb151, type: 3}
-  - {fileID: 8300000, guid: ebf51cda5632ab545b6ba164e66a8034, type: 3}
-  - {fileID: 8300000, guid: 2ec9d1fbd136f6c4897a994385207da8, type: 3}
-  - {fileID: 8300000, guid: fbc372ba7b3cad449903dc8ac8db2448, type: 3}
-  - {fileID: 8300000, guid: be84d53ee52241a41b8ffb88bf60b705, type: 3}
-  - {fileID: 8300000, guid: 76a91c5b745c20d4f9218e68d437f2d4, type: 3}
-  - {fileID: 8300000, guid: bf69b7394e7cbe84981c38a5e344f646, type: 3}
-  - {fileID: 8300000, guid: e5104f11f8ce5384ebd9e63e0965f2c7, type: 3}
+  audioSource: {fileID: 0}
+  isPlayed: 0
+  flag: 0
 --- !u!1 &1832903463
 GameObject:
   m_ObjectHideFlags: 0
