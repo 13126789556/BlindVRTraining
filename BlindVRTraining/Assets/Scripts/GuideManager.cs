@@ -80,4 +80,18 @@ public class GuideManager : NetworkBehaviour
             span = 0.0f;
         }
     }
+
+    public void playOnce(int index) 
+    {
+        int i = 0;
+        while (i < playList.Count) 
+        {
+            if (index == playList[i])
+            {
+                return;
+            }
+            i++;
+        }
+        playList.Add(index);
+    }
 }
