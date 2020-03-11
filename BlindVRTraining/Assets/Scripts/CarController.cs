@@ -10,6 +10,7 @@ public class CarController : NetworkBehaviour
     public Direction sourceDir; 
     public float speed = 10;
     public float leftTurnRadius, rightTurnRadius;
+    public float distanceFormIntersection;
     float originSpeed;
     Ray forwardDetection;
     public enum Behavior { Null, TurnLeft, GoStraight, TurnRight }
@@ -43,17 +44,17 @@ public class CarController : NetworkBehaviour
                     if (i == 0)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.TurnLeft : behavior;
-                        transform.position = new Vector3(190, 0, 2);
+                        transform.position = new Vector3(Mathf.Max(100,distanceFormIntersection), 0, 2);
                     }
                     else if (i == 1)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.GoStraight : behavior;
-                        transform.position = new Vector3(190, 0, Random.Range(0, 1) > 0 ? 2 : 5);
+                        transform.position = new Vector3(Mathf.Max(100,distanceFormIntersection), 0, Random.Range(0, 1) > 0 ? 2 : 5);
                     }
                     else if (i == 2)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.TurnRight : behavior;
-                        transform.position = new Vector3(190, 0, 8);
+                        transform.position = new Vector3(Mathf.Max(100,distanceFormIntersection), 0, 8);
                     }
                     break;
                 }
@@ -65,17 +66,17 @@ public class CarController : NetworkBehaviour
                     if (i == 0)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.TurnLeft : behavior;
-                        transform.position = new Vector3(-2, 0, 190);
+                        transform.position = new Vector3(-2, 0, Mathf.Max(100,distanceFormIntersection));
                     }
                     else if (i == 1)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.GoStraight : behavior;
-                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? -2 : -5, 0, 190);
+                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? -2 : -5, 0, Mathf.Max(100,distanceFormIntersection));
                     }
                     else if (i == 2)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.TurnRight : behavior;
-                        transform.position = new Vector3(-8, 0, 190);
+                        transform.position = new Vector3(-8, 0, Mathf.Max(100,distanceFormIntersection));
                     }
                     break;
                 }
@@ -87,17 +88,17 @@ public class CarController : NetworkBehaviour
                     if (i == 0)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.TurnLeft : behavior;
-                        transform.position = new Vector3(2, 0, -190);
+                        transform.position = new Vector3(2, 0, -Mathf.Max(100,distanceFormIntersection));
                     }
                     else if (i == 1)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.GoStraight : behavior;
-                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? 2 : 5, 0, -190);
+                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? 2 : 5, 0, -Mathf.Max(100,distanceFormIntersection));
                     }
                     else if (i == 2)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.TurnRight : behavior;
-                        transform.position = new Vector3(8, 0, -190);
+                        transform.position = new Vector3(8, 0, -Mathf.Max(100,distanceFormIntersection));
                     }
                     break;
                 }
@@ -109,17 +110,17 @@ public class CarController : NetworkBehaviour
                     if (i == 0)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.TurnLeft : behavior;
-                        transform.position = new Vector3(-190, 0, -2);
+                        transform.position = new Vector3(-Mathf.Max(100,distanceFormIntersection), 0, -2);
                     }
                     else if (i == 1)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.GoStraight : behavior;
-                        transform.position = new Vector3(-190, 0, Random.Range(0, 1) > 0 ? -2 : -5);
+                        transform.position = new Vector3(-Mathf.Max(100,distanceFormIntersection), 0, Random.Range(0, 1) > 0 ? -2 : -5);
                     }
                     else if (i == 2)
                     {
                         behavior = behavior == Behavior.Null ? Behavior.TurnRight : behavior;
-                        transform.position = new Vector3(-190, 0, -8);
+                        transform.position = new Vector3(-Mathf.Max(100,distanceFormIntersection), 0, -8);
                     }
                     break;
                 }
@@ -131,15 +132,15 @@ public class CarController : NetworkBehaviour
                     transform.forward = new Vector3(-1, 0, 0);
                     if (behavior == Behavior.TurnLeft)
                     {
-                        transform.position = new Vector3(190, 0, 2);
+                        transform.position = new Vector3(Mathf.Max(100,distanceFormIntersection), 0, 2);
                     }
                     else if (behavior == Behavior.GoStraight)
                     {
-                        transform.position = new Vector3(190, 0, Random.Range(0, 1) > 0 ? 2 : 5);
+                        transform.position = new Vector3(Mathf.Max(100,distanceFormIntersection), 0, Random.Range(0, 1) > 0 ? 2 : 5);
                     }
                     else if (behavior == Behavior.TurnRight)
                     {
-                        transform.position = new Vector3(190, 0, 8);
+                        transform.position = new Vector3(Mathf.Max(100,distanceFormIntersection), 0, 8);
                     }
                     break;
                 }
@@ -148,15 +149,15 @@ public class CarController : NetworkBehaviour
                     transform.forward = new Vector3(0, 0, -1);
                     if (behavior == Behavior.TurnLeft)
                     {
-                        transform.position = new Vector3(-2, 0, 190);
+                        transform.position = new Vector3(-2, 0, Mathf.Max(100,distanceFormIntersection));
                     }
                     else if (behavior == Behavior.GoStraight)
                     {
-                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? -2 : -5, 0, 190);
+                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? -2 : -5, 0, Mathf.Max(100,distanceFormIntersection));
                     }
                     else if (behavior == Behavior.TurnRight)
                     {
-                        transform.position = new Vector3(-8, 0, 190);
+                        transform.position = new Vector3(-8, 0, Mathf.Max(100,distanceFormIntersection));
                     }
                     break;
                 }
@@ -165,15 +166,15 @@ public class CarController : NetworkBehaviour
                     transform.forward = new Vector3(0, 0, 1);
                     if (behavior == Behavior.TurnLeft)
                     {
-                        transform.position = new Vector3(2, 0, -190);
+                        transform.position = new Vector3(2, 0, -Mathf.Max(100,distanceFormIntersection));
                     }
                     else if (behavior == Behavior.GoStraight)
                     {
-                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? 2 : 5, 0, -190);
+                        transform.position = new Vector3(Random.Range(0, 1) > 0 ? 2 : 5, 0, -Mathf.Max(100,distanceFormIntersection));
                     }
                     else if (behavior == Behavior.TurnRight)
                     {
-                        transform.position = new Vector3(8, 0, -190);
+                        transform.position = new Vector3(8, 0, -Mathf.Max(100,distanceFormIntersection));
                     }
                     break;
                 }
@@ -182,15 +183,15 @@ public class CarController : NetworkBehaviour
                     transform.forward = new Vector3(1, 0, 0);
                     if (behavior == Behavior.TurnLeft)
                     {
-                        transform.position = new Vector3(-190, 0, -2);
+                        transform.position = new Vector3(-Mathf.Max(100,distanceFormIntersection), 0, -2);
                     }
                     else if (behavior == Behavior.GoStraight)
                     {
-                        transform.position = new Vector3(-190, 0, Random.Range(0, 1) > 0 ? -2 : -5);
+                        transform.position = new Vector3(-Mathf.Max(100,distanceFormIntersection), 0, Random.Range(0, 1) > 0 ? -2 : -5);
                     }
                     else if (behavior == Behavior.TurnRight)
                     {
-                        transform.position = new Vector3(-190, 0, -8);
+                        transform.position = new Vector3(-Mathf.Max(100,distanceFormIntersection), 0, -8);
                     }
                     break;
                 }
