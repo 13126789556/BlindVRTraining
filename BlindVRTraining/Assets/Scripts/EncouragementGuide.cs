@@ -10,7 +10,7 @@ public class EncouragementGuide : NetworkBehaviour
     public SignalController signal;
     public Vector3 position;
     public bool isInSafeZone = true;
-    private float span = 15.0f;
+    private float span = 10.0f;
 
     // Start is called before the first frame update
     void Start()
