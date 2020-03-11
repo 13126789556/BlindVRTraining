@@ -129,8 +129,8 @@ public class TurnHeadParallel : MonoBehaviour
         }
         else if(!isCarInTrackZone){ // the target car is out of the track zone
             //compare these count
-            print("Yes " + yesCount);
-            print("No " + noCount);
+            //print("Yes " + yesCount);
+            //print("No " + noCount);
             if(yesCount > noCount){
                 winCondition1 ++;
                 yesCount = noCount = 0;

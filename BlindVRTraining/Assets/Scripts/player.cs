@@ -16,9 +16,16 @@ public class player : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        if (isLocalPlayer)
+        {
+            Camera.main.transform.SetParent(transform);
+        }
         if (!isServer)
         {
             transform.position = new Vector3(0, 10, -15);
+            transform.rotation = new Quaternion(0.5f, -0.5f, 0.5f, 0.5f);
+            Camera.main.orthographic = true;
+            Camera.main.orthographicSize = 32;
         }
     }
 
@@ -27,7 +34,7 @@ public class player : NetworkBehaviour
     {
         if (!isLocalPlayer) 
         { return; }
-        if (isClient)
+        if (!isServer)
         {
             return;
         }
