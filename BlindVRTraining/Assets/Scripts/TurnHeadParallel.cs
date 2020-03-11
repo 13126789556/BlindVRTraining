@@ -21,7 +21,7 @@ public class TurnHeadParallel : MonoBehaviour
     // Start is call`ed before the first frame update
     void Start(){
         audioSource = GetComponent<AudioSource>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         guideManager = GameObject.Find("GuideManager");
         _player = GetComponent<player>();
         _startPosition = GameObject.FindGameObjectWithTag("StartPosition");
@@ -39,11 +39,7 @@ public class TurnHeadParallel : MonoBehaviour
                     //turn head to track the car sound
                     if(!audioSource.isPlaying && !isplayed){
                         print("hi");
-                        //audioSource.PlayOneShot(audios[1], 1);
-                        // audioSource.clip = audios[1];
-                        // audioSource.volume = 1;
-                        // audioSource.Play();
-                        guideManager.GetComponent<GuideManager>();
+                        guideManager.GetComponent<GuideManager>().playOnce(21);
                         isplayed = true;
                     }
                     //else isplayed = false;
@@ -52,7 +48,7 @@ public class TurnHeadParallel : MonoBehaviour
                 case 1:
                     //turn left side parallel to the traffic
                     //if(!isplayed)
-                    guideManager.GetComponent<GuideManager>().playList.Add(26);
+                    guideManager.GetComponent<GuideManager>().playOnce(26);
                     comfirmPosition();
                 break;
             }
@@ -81,13 +77,14 @@ public class TurnHeadParallel : MonoBehaviour
             //check if the player is in the right position
                 if(isLeftSideParallel()){
                     //TODO: ADD SOUND
-                    guideManager.GetComponent<GuideManager>().playList.Add(Random.Range(17,19));
+                    guideManager.GetComponent<GuideManager>().playOnce(Random.Range(17,19));
                     //print("you got it!");
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.y, Random.Range(-180f, 180f), this.transform.rotation.y);
                     winCondition2 ++;
                 }
                 else{
                     //TODO: ADD SOUND
+                    guideManager.GetComponent<GuideManager>().playOnce(30);
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.y, Random.Range(-180f, 180f), this.transform.rotation.y);
                     //print("try again");
                 }
@@ -97,7 +94,7 @@ public class TurnHeadParallel : MonoBehaviour
         else{
             //print("Pass!");
             //todo: play sound
-            guideManager.GetComponent<GuideManager>().playList.Add(27);
+            guideManager.GetComponent<GuideManager>().playOnce(27);
             state = 3;
         }
     }
@@ -106,6 +103,7 @@ public class TurnHeadParallel : MonoBehaviour
         if(winCondition1<4){
             if(isCarComing){   
             //print("there is a car coming");
+            //if(targetPosition.x == -2.1 )
             //if the car enter the tracking zone, check if the player is looking at the car
             } 
             //print("winCondition1: " + winCondition1);     
@@ -115,7 +113,7 @@ public class TurnHeadParallel : MonoBehaviour
             print(winCondition1);
             print("Pass");
             //todo: play sound
-            guideManager.GetComponent<GuideManager>().playList.Add(25);
+            guideManager.GetComponent<GuideManager>().playOnce(25);
             GameManager.isTrackState = false;
             state = 1;
         }
@@ -129,9 +127,10 @@ public class TurnHeadParallel : MonoBehaviour
             v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
             v2 = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.y);
             if(getAngle(v1,v2) < 50) {
-                
+                guideManager.GetComponent<GuideManager>().playOnce(Random.Range(17,19));
                 yesCount ++;
             }else{
+                guideManager.GetComponent<GuideManager>().playOnce(29);
                 noCount ++;
                 
             }
