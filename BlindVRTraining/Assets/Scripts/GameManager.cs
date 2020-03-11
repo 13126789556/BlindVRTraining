@@ -38,7 +38,10 @@ public class GameManager : NetworkBehaviour
                 var tempCar = Instantiate(car);
                 var tempCarController = tempCar.GetComponent<CarController>();
                 tempCarController.sourceDir = CarController.Direction.Sorth;
+                tempCarController.distanceFormIntersection = 130;
+                tempCarController.behavior = CarController.Behavior.GoStraight;
                 timer = Random.Range(4, 5);
+                NetworkServer.Spawn(tempCar);
             }
         }
         else
@@ -49,6 +52,7 @@ public class GameManager : NetworkBehaviour
             {
                 var tempCar = Instantiate(car);
                 var tempCarController = tempCar.GetComponent<CarController>();
+                tempCarController.distanceFormIntersection = 130;
                 //tempCarController.behavior = CarController.Behavior.GoStraight;
                 //tempCarController.sourceDir = CarController.Direction.East;
                 timer = Random.Range(2, 6);
