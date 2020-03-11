@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 7679508071587627038, guid: 95023566f640af240aee3a27ea20f8eb, type: 3}
   maxCarCount: 30
+  isTrackState: 0
 --- !u!114 &2302655016214587500
 MonoBehaviour:
   m_ObjectHideFlags: 0
