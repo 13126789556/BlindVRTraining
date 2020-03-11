@@ -9,7 +9,7 @@ public class GameManager : NetworkBehaviour
     public int maxCarCount = 30;
     IntersectionController _ic;
     float timer;
-    public bool isTrackState = false;
+    static public bool isTrackState = false;
     //NetworkManager networkManager;
     void Start()
     {
