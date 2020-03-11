@@ -17,6 +17,9 @@ public class BlindMaskController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Cheat"))
+        {
+            GetComponent<Renderer>().enabled = !GetComponent<Renderer>().enabled;
+        }
     }
 }

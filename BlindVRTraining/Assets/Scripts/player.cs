@@ -19,15 +19,19 @@ public class player : NetworkBehaviour
         if (isLocalPlayer)
         {
             Camera.main.transform.SetParent(transform);
+            if (!isServer)
+            {
+                var cam = Camera.main;
+                cam.transform.SetParent(null);
+                cam.transform.position = new Vector3(0, 10, -15);
+                cam.transform.rotation = new Quaternion(0.5f, -0.5f, 0.5f, 0.5f);
+                cam.orthographic = true;
+                cam.orthographicSize = 32;
+                gameObject.SetActive(false);
+            }
         }
         if (!isServer)
         {
-            var cam = Camera.main;
-            cam.transform.SetParent(null);
-            cam.transform.position = new Vector3(0, 10, -15);
-            cam.transform.rotation = new Quaternion(0.5f, -0.5f, 0.5f, 0.5f);
-            cam.orthographic = true;
-            cam.orthographicSize = 32;
         }
     }
 
