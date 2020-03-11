@@ -388,6 +388,7 @@ public class CarController : NetworkBehaviour
         }
     }
 
+
     private void OnTriggerStay(Collider other)
     {
         if (isTracking)
