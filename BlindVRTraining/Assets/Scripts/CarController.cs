@@ -383,13 +383,13 @@ public class CarController : NetworkBehaviour
 
         if (other.name == "Track Zone" && !TurnHeadParallel.isCarInTrackZone)
         {
-            isTracking = true;
             TurnHeadParallel.isCarInTrackZone = true;
             TurnHeadParallel.isCarComing = false;
 
         }
         if (other.name == "Prepare Zone" && !TurnHeadParallel.isCarInTrackZone)
         {
+            isTracking = true;
             //isTracking = true;
             TurnHeadParallel.isCarComing = true;
         }
