@@ -59,6 +59,7 @@ public class CollectGuide : MonoBehaviour
 
             if (Input.GetButton("Confirm")) 
             {
+                guideManager.GetComponent<GuideManager>().stop();
                 other.gameObject.GetComponent<player>().isCollected = true;
             }
         }

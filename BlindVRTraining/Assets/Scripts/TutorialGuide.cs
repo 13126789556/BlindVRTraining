@@ -113,6 +113,7 @@ public class TutorialGuide : MonoBehaviour
 
                         if (Input.GetButton("Confirm"))
                         {
+                            guideManager.GetComponent<GuideManager>().stop();
                             state = State.Wait;
                             sc.AllowBeep = true;
                             other.gameObject.GetComponent<player>().move();

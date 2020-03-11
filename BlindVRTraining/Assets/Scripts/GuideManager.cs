@@ -96,4 +96,10 @@ public class GuideManager : NetworkBehaviour
         }
         playList.Add(index);
     }
+
+    public void stop()
+    {
+        index = playList.Count;
+        audiosource.Stop();
+    }
 }
