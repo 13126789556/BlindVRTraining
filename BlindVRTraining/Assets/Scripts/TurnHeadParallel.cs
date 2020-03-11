@@ -136,7 +136,7 @@ public class TurnHeadParallel : MonoBehaviour
 
     public void turnHead2TrackSound()
     {
-        if (winCondition1 < 4)
+        if (winCondition1 < 3)
         {
             if (isCarComing)
             {
