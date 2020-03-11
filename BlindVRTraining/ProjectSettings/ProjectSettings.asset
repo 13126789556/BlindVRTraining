@@ -103,6 +103,7 @@ PlayerSettings:
   xboxOneMonoLoggingLevel: 0
   xboxOneLoggingLevel: 1
   xboxOneDisableEsram: 0
+  xboxOneEnableTypeOptimization: 0
   xboxOnePresentImmediateThreshold: 0
   switchQueueCommandMemory: 0
   switchQueueControlMemory: 16384
@@ -127,8 +128,8 @@ PlayerSettings:
   xboxOneEnable7thCore: 1
   vrSettings:
     cardboard:
-      depthFormat: 0
-      enableTransitionView: 1
+      depthFormat: 2
+      enableTransitionView: 0
     daydream:
       depthFormat: 0
       useSustainedPerformanceMode: 0
@@ -439,6 +440,7 @@ PlayerSettings:
     - cardboard
     - None
     - daydream
+    - Oculus
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
