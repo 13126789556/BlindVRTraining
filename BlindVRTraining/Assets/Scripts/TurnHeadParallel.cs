@@ -127,10 +127,9 @@ public class TurnHeadParallel : MonoBehaviour
             v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
             v2 = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.y);
             if(getAngle(v1,v2) < 50) {
-                guideManager.GetComponent<GuideManager>().playOnce(Random.Range(17,19));
                 yesCount ++;
             }else{
-                guideManager.GetComponent<GuideManager>().playOnce(29);
+                
                 noCount ++;
                 
             }
@@ -139,8 +138,10 @@ public class TurnHeadParallel : MonoBehaviour
             //compare these count
             if(yesCount > noCount){
                 winCondition1 ++;
+                guideManager.GetComponent<GuideManager>().playOnce(Random.Range(17,19));
                 yesCount = noCount = 0;
             }
+            else guideManager.GetComponent<GuideManager>().playOnce(29);
         }
         StartCoroutine(checkTracking());
     } 
