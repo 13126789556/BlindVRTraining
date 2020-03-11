@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class EncouragementGuide : NetworkBehaviour
 {
     public GameObject guideManager;
+    public GameObject audioManager;
     public SignalController signal;
     public Vector3 position;
     public bool isInSafeZone = true;
@@ -15,12 +16,17 @@ public class EncouragementGuide : NetworkBehaviour
     void Start()
     {
         guideManager = GameObject.Find("GuideManager");
+        audioManager = GameObject.Find("AudioManager");
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (guideManager.GetComponent<GuideManager>().span >= span && TurnHeadParallel.state == 3) 
+        if (audioManager.GetComponent<AudioSource>().isPlaying)
+        {
+            guideManager.GetComponent<GuideManager>().span = 0;
+        }
+        if (guideManager.GetComponent<GuideManager>().span >= span) 
         {
             if (GetComponent<player>().getSpeed() != 0)
             {
