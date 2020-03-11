@@ -41,7 +41,7 @@ public class player : NetworkBehaviour
         {
             GetComponent<AudioSource>().Play();
         }
-        if (Input.GetButtonUp("Submit"))
+        if (Input.GetButtonUp("Submit") || speed == 0)
         {
             GetComponent<AudioSource>().Stop();
         }
