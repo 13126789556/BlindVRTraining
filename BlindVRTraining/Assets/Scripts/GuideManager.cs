@@ -26,6 +26,7 @@ public class GuideManager : MonoBehaviour
         _Encouragement_1 = 17,
         _Encouragement_2 = 18,
         _Encouragement_3 = 19,
+        _Encouragement_Hint = 20,
     };
 
     public AudioClip[] audios;

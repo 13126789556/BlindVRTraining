@@ -66,6 +66,11 @@ public class player : NetworkBehaviour
     {
         speed = 2.0f;
     }
+    
+    public float getSpeed()
+    {
+        return speed;
+    }
 
     public void resetLocation(Vector3 location)
     {
