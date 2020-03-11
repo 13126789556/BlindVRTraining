@@ -69,7 +69,7 @@ public class player : NetworkBehaviour
     
     public float getSpeed()
     {
-        return speed;
+        return rb.velocity == Vector3.zero ? 0 : 1;
     }
 
     public void resetLocation(Vector3 location)
