@@ -28,6 +28,14 @@ public class GuideManager : NetworkBehaviour
         _Encouragement_2 = 18,
         _Encouragement_3 = 19,
         _Encouragement_Hint = 20,
+        _Instruction_1 = 21,
+        _Instruction_2 = 22,
+        _Instruction_3 = 23,
+        _Instruction_4 = 24,
+        _Instruction_5 = 25,
+        _Instruction_6 = 26,
+        _Instruction_7 = 27
+        
     };
 
     public AudioClip[] audios;
