@@ -16,6 +16,10 @@ public class player : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        if (isClient)
+        {
+            transform.position = new Vector3(0, 10, -15);
+        }
     }
 
   
@@ -23,6 +27,10 @@ public class player : NetworkBehaviour
     {
         if (!isLocalPlayer) 
         { return; }
+        if (isClient)
+        {
+            return;
+        }
         //press A to move forward
         if (Input.GetButton("Submit"))
         {
@@ -45,7 +53,6 @@ public class player : NetworkBehaviour
         {
             GetComponent<AudioSource>().Stop();
         }
-
     }
 
     //get unit vector of the facing direction
