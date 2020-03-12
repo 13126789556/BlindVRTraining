@@ -100,20 +100,23 @@ public class TurnHeadParallel : MonoBehaviour
 
     public void comfirmPosition()
     {
-        if (winCondition2 < 4)
+        if (winCondition2 != 3)
         {
             if (Input.GetButtonDown("Confirm"))
             {
                 //check if the player is in the right position
                 if (isLeftSideParallel())
                 {
+                    ++winCondition2;
                     //TODO: ADD SOUND
                     audioManager.flag = true;
                     audioManager.playAudio(audios[10]);
                     //guideManager.GetComponent<GuideManager>().playOnce(Random.Range(17, 19));
                     //print("you got it!");
-                    this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, Random.Range(-180f, 180f), this.transform.rotation.z);
-                    ++winCondition2;
+                    if(winCondition2 <= 2){
+                        this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, Random.Range(-180f, 180f), this.transform.rotation.z);
+                    }
+                   
                 }
                 else
                 {
