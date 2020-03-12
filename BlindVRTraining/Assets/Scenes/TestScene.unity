@@ -685,8 +685,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20.092186, y: 4.7535667, z: 61.042824}
-  m_Center: {x: -5.7527714, y: 0, z: 9.288113}
+  m_Size: {x: 20.092186, y: 4.7535667, z: 101.43666}
+  m_Center: {x: -5.7527714, y: 0, z: 9.210541}
 --- !u!1 &371230220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guideManager: {fileID: 0}
+  audioManager: {fileID: 0}
   signal: {fileID: 0}
   position: {x: 0, y: 0, z: 0}
   isInSafeZone: 1
@@ -2233,6 +2234,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1036100726, guid: 14fdb4949f3745d45a6ec4b7e29adfb1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7937437832020870228, guid: 14fdb4949f3745d45a6ec4b7e29adfb1,
         type: 3}
       propertyPath: m_Name
