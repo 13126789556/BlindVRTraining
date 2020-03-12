@@ -118,11 +118,6 @@ public class CrossStreetGuide : MonoBehaviour
                     break;
                 case State.Push_To_Walk:
                     {
-                        if (guideManager.GetComponent<GuideManager>().span >= span)
-                        {
-                            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_PushButton);
-                        }
-
                         if (Input.GetButton("Confirm"))
                         {
                             state = State.Wait;
@@ -134,10 +129,10 @@ public class CrossStreetGuide : MonoBehaviour
                     break;
                 case State.Wait:
                     {
-                        if (guideManager.GetComponent<GuideManager>().span >= span && !sc.AllowGoStraight)
-                        {
-                            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_Wait);
-                        }
+                        //if (guideManager.GetComponent<GuideManager>().span >= span && !sc.AllowGoStraight)
+                        //{
+                        //    guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_Wait);
+                        //}
                     }
                     break;
             }

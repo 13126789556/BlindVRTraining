@@ -26,7 +26,7 @@ public class EncouragementGuide : NetworkBehaviour
         {
             guideManager.GetComponent<GuideManager>().span = 0;
         }
-        if (guideManager.GetComponent<GuideManager>().span >= span) 
+        if (guideManager.GetComponent<GuideManager>().span >= span && TurnHeadParallel.state == 3) 
         {
             if (GetComponent<player>().getSpeed() != 0)
             {
@@ -46,7 +46,7 @@ public class EncouragementGuide : NetworkBehaviour
             }
             else
             {
-                //guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Encouragement_Hint);
+                guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Encouragement_Hint);
             }
 
             guideManager.GetComponent<GuideManager>().span = 0.0f;
@@ -54,10 +54,10 @@ public class EncouragementGuide : NetworkBehaviour
 
         if (signal!=null&&signal.AllowGoStraight != true && !isInSafeZone)
         {
-            GetComponent<player>().resetLocation(position);
-            guideManager.GetComponent<GuideManager>().stop();
-            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Error_HurtByCar);
-            isInSafeZone = true;
+            //GetComponent<player>().resetLocation(position);
+            //guideManager.GetComponent<GuideManager>().stop();
+            //guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Error_HurtByCar);
+            //isInSafeZone = true;
         }
     }
 }
