@@ -56,5 +56,9 @@ public class SignalController : MonoBehaviour
             GetComponent<AudioSource>().Play();
             allowBeep = false;
         }
+        else if(!AllowGoStraight)
+        {
+            GetComponent<AudioSource>().Stop();
+        }
     }
 }

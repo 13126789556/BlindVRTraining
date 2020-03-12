@@ -13,8 +13,6 @@ public class TutorialGuide : MonoBehaviour
     private SignalController sc;
 
     public State state = State.Wait;
-    private float span = 5.0f;
-    private float duration = 0.0f;
     private bool istriggered = false;
     private bool hint = false;
 
@@ -26,14 +24,6 @@ public class TutorialGuide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!guideManager.GetComponent<AudioSource>().isPlaying)
-        {
-            duration -= Time.deltaTime;
-        }
-        else
-        {
-            duration = span;
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -101,35 +91,24 @@ public class TutorialGuide : MonoBehaviour
                             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Tutorial_XStreet);
                             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Tutorial_PushButton);
                             state = State.Push_To_Walk;
-                            duration = 0.0f;
                         }
                     }
                     break;
                 case State.Push_To_Walk:
                     {
-                        if (duration <= 0.0f)
-                        {
-                            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_PushButton);
-                        }
-
                         if (Input.GetButton("Confirm"))
                         {
                             guideManager.GetComponent<GuideManager>().stop();
                             state = State.Wait;
                             sc.AllowBeep = true;
                             other.gameObject.GetComponent<player>().move();
-                            duration = 0.0f;
+                            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_Wait);
                         }
                     }
                     break;
                 case State.Wait:
                     {
-                        if (duration <= 0.0f && !sc.AllowGoStraight)
-                        {
-                            guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Xstreet_Wait);
-                            hint = false;
-                        }
-                        else if (!hint && sc.AllowGoStraight)
+                        if (!hint && sc.AllowGoStraight)
                         {
                             guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Tutorial_Beep);
                             hint = true;
