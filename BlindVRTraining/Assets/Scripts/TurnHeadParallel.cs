@@ -60,6 +60,7 @@ public class TurnHeadParallel : MonoBehaviour
                     turnHead2TrackSound();
                     break;
                 case 1:
+                    GameManager.isParallelState = true;
                     //StopAllCoroutines();
                     //print("Stopped " + Time.time);
                     _player.stop();
@@ -138,6 +139,7 @@ public class TurnHeadParallel : MonoBehaviour
             audioManager.playAudio(audios[6]);
             //guideManager.GetComponent<GuideManager>().playOnce(27);
             state = 3;
+            GameManager.isParallelState = false;
             _player.move();
         }
     }
