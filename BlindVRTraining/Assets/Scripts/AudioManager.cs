@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public bool flag;
     void Start()
     {
+        flag =false;
         isPlayed = false;
         audioSource = gameObject.AddComponent<AudioSource>();
     }
@@ -19,8 +18,8 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.clip = clip;
         //isPlayed = false;
-        print("flag: " + flag);
-        print("isPlayed: " + isPlayed);
+        //print("flag: " + flag);
+        //print("isPlayed: " + isPlayed);
         if (flag == true && isPlayed == false)
         {   
             if(!audioSource.isPlaying){
