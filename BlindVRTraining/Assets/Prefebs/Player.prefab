@@ -341,6 +341,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guideManager: {fileID: 0}
+  audioManager: {fileID: 0}
+  signal: {fileID: 0}
+  position: {x: 0, y: 0, z: 0}
+  isInSafeZone: 1
 --- !u!114 &4496851071590266446
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,9 +30,7 @@ public class player : NetworkBehaviour
                 gameObject.SetActive(false);
             }
         }
-        if (!isServer)
-        {
-        }
+        transform.forward = Vector3.left;
     }
 
   
