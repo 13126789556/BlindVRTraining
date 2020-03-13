@@ -12,6 +12,7 @@ public class GameManager : NetworkBehaviour
     float timer;
     static public bool isStart = true;
     static public bool isTrackState = true;
+    static public bool isParallelState = false;
     //NetworkManager networkManager;
     void Start()
     {
@@ -61,6 +62,28 @@ public class GameManager : NetworkBehaviour
                 }
                 tempCarController.behavior = CarController.Behavior.GoStraight;
                 timer = Random.Range(14, 18);
+                NetworkServer.Spawn(tempCar);
+            }
+        }
+        else if (isParallelState)
+        {
+            _ic.intersectionState = IntersectionController.IntersectionState.State1;
+            if (timer <= 0 && CarController.carCount <= 5)
+            {
+                var tempCar = Instantiate(car);
+                var tempCarController = tempCar.GetComponent<CarController>();
+                if (Random.Range(0, 2) < 1)
+                {
+                    tempCarController.sourceDir = CarController.Direction.Sorth;
+                    tempCarController.distanceFormIntersection = 150;
+                }
+                else
+                {
+                    tempCarController.sourceDir = CarController.Direction.North;
+                    tempCarController.distanceFormIntersection = 60;
+                }
+                tempCarController.behavior = CarController.Behavior.GoStraight;
+                timer = Random.Range(6, 9);
                 NetworkServer.Spawn(tempCar);
             }
         }
