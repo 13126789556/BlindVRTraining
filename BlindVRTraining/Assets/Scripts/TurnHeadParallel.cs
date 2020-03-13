@@ -33,7 +33,7 @@ public class TurnHeadParallel : MonoBehaviour
         //isplayed1 = isPlayed2 = false;
         winCondition1 = winCondition2 = 0;
         yesCount = noCount = 0;
-        repeatTime = 0.3f;
+        repeatTime = 0.1f;
         state = 0;
         //StartCoroutine(checkTracking());
     }
@@ -112,10 +112,15 @@ public class TurnHeadParallel : MonoBehaviour
                     //TODO: ADD SOUND
                     audioManager.flag = true;
                     audioManager.playAudio(audios[10]);
+ 
                     //guideManager.GetComponent<GuideManager>().playOnce(Random.Range(17, 19));
                     //print("you got it!");
                     if(winCondition2 <= 2){
+                        audioManager.isPlayed = false;
+                        audioManager.flag = true;
+                        audioManager.playAudio(audios[11]);
                         this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, Random.Range(-180f, 180f), this.transform.rotation.z);
+                        
                     }
                    
                 }
@@ -124,6 +129,7 @@ public class TurnHeadParallel : MonoBehaviour
                     //TODO: ADD SOUND
                     audioManager.flag = true;
                     audioManager.playAudio(audios[8]);
+                    //audioManager.playAudio(audios[12]);
                     //guideManager.GetComponent<GuideManager>().playOnce(30);
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, Random.Range(-180f, 180f), this.transform.rotation.z);
                     //print("try again");
@@ -178,7 +184,7 @@ public class TurnHeadParallel : MonoBehaviour
                     Vector2 v1, v2;
                     v1 = new Vector2(targetPosition.x - transform.position.x, targetPosition.z - transform.position.z);
                     v2 = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.y);
-                    if (getAngle(v1, v2) < 50)
+                    if (getAngle(v1, v2) < 40)
                     {
                         yesCount++;
                     }
