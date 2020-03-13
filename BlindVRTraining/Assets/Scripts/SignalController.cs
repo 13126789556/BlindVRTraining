@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SignalController : MonoBehaviour
 {
-    bool allowTurnLeft, allowGoStraight, allowBeep = false;
+    bool allowTurnLeft, allowGoStraight, allowBeep = false, isFirst = true;
+    [SerializeField] private AudioClip beep_1, beep_2;
+    private AudioSource ac;
 
     public bool AllowTurnLeft
     {
@@ -41,24 +43,38 @@ public class SignalController : MonoBehaviour
         set 
         {
             allowBeep = value;
+            isFirst = !value;
         }
     }
 
     void Start()
     {
         GetComponent<AudioSource>().Stop();
+        beep_1 = Resources.Load<AudioClip>("Audio/Beep_1");
+        beep_2 = Resources.Load<AudioClip>("Audio/Beep_2");
+        ac = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         if (AllowBeep && AllowGoStraight)
         {
-            GetComponent<AudioSource>().Play();
+            ac.clip = beep_1;
+            ac.Play();
+            isFirst = false;
             allowBeep = false;
         }
-        else if(!AllowGoStraight)
+
+        if (!ac.isPlaying && !isFirst)
         {
-            GetComponent<AudioSource>().Stop();
+            ac.clip = beep_2;
+            ac.Play();
+        }
+
+        if (!AllowGoStraight)
+        {
+            isFirst = true;
+            ac.Stop();
         }
     }
 }

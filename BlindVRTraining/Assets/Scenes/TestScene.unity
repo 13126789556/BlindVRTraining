@@ -336,34 +336,34 @@ PrefabInstance:
     - target: {fileID: 193684298, guid: 4aab4b7f7d3fea540bf47f02565c901f, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 06cbaeb6419d0b148aff328ae8af8e12, type: 3}
+      objectReference: {fileID: 8300000, guid: 2fabfe78bb9c4064289f8ad788fe1c3d, type: 3}
     - target: {fileID: 193684298, guid: 4aab4b7f7d3fea540bf47f02565c901f, type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 740986903, guid: 4aab4b7f7d3fea540bf47f02565c901f, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 06cbaeb6419d0b148aff328ae8af8e12, type: 3}
+      objectReference: {fileID: 8300000, guid: 2fabfe78bb9c4064289f8ad788fe1c3d, type: 3}
     - target: {fileID: 740986903, guid: 4aab4b7f7d3fea540bf47f02565c901f, type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 772345772, guid: 4aab4b7f7d3fea540bf47f02565c901f, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 06cbaeb6419d0b148aff328ae8af8e12, type: 3}
+      objectReference: {fileID: 8300000, guid: 2fabfe78bb9c4064289f8ad788fe1c3d, type: 3}
     - target: {fileID: 772345772, guid: 4aab4b7f7d3fea540bf47f02565c901f, type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1781348709, guid: 4aab4b7f7d3fea540bf47f02565c901f, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 06cbaeb6419d0b148aff328ae8af8e12, type: 3}
+      objectReference: {fileID: 8300000, guid: 2fabfe78bb9c4064289f8ad788fe1c3d, type: 3}
     - target: {fileID: 1781348709, guid: 4aab4b7f7d3fea540bf47f02565c901f, type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1395089724662975949, guid: 4aab4b7f7d3fea540bf47f02565c901f,
         type: 3}

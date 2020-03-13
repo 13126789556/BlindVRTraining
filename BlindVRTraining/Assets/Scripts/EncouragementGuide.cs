@@ -44,7 +44,7 @@ public class EncouragementGuide : NetworkBehaviour
                     guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Encouragement_3);
                 }
             }
-            else
+            else if(!isInSafeZone)
             {
                 guideManager.GetComponent<GuideManager>().playList.Add((int)GuideManager.GuideDic._Encouragement_Hint);
             }
